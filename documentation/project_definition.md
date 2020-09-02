@@ -6,12 +6,12 @@ by giving the time taken by each algorithm as output.
 
 ### Algorithms and data structrures
 
-Dijkstra’s algorithm
-A*
-JPS
+|| Dijkstra’s algorithm | A* | JPS
+|------|----------|----------|----------
+| Data structures | Arrays, Fibonacci heap | Arrays, queue | Arrays, sets, maps, queue 
+| Time complexity (worst case) | O(V log(V) + E) | O(V log(V) + E) | O(V log(V) + E) 
 
-All three algorithms use a priority queue.
-I chose the algorithms purely based on personal curiosity, JPS is totally new to me.
+I chose the algorithms purely based on personal curiosity, A* and JPS are both new to me.
 
 
 ### Input
