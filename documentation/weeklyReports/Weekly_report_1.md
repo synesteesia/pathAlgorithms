@@ -1,6 +1,6 @@
 # Week 1
 
-[Hour reporting](https://github.com/synesteesia/tira-harjoitustyo/blob/master/dokumentaatio/viikkoraportit/Hour_reporting.md)
+[Hour reporting](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Hour_reporting.md)
 
 ## What has happened during week 1
 
