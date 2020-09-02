@@ -4,7 +4,7 @@
 
 Date       | time | target |
 -----------|------|--------|
-2020-09-02 | 9 | Project creation on git |
+2020-09-02 | 5 | Project creation on git, research |
 
 
 ## Week 2
