@@ -28,3 +28,10 @@ The user can give the program start and destination coordinates as input.
 * https://www.geeksforgeeks.org/a-search-algorithm/
 * http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf
 * https://movingai.com/benchmarks/grids.html
+
+
+### Opinto-ohjelma
+Tietojenkäsittelytieteen kandidaatti (TKT)
+
+### Project language
+English
