@@ -13,7 +13,7 @@
 ## Problems
 
 Sadly I missed the first lecture, 
-wich added some confusion with tring to come up with a good project topic.
+wich added some confusion with trying to come up with a good project topic.
 
 ## Next week
 
