@@ -5,7 +5,7 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 
 ## Links to documentation
 
-### [Project definition](https://github.com/synesteesia/tira-harjoitustyo/blob/master/dokumentaatio/project_definition.md)
+### [Project definition](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/project_definition.md)
 
 
 
