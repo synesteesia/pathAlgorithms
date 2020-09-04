@@ -2,7 +2,7 @@
   
 This project compares different pathfinding algorithms with Movin ai labs 2d maps.
 The aim is to learn in which cases each algorithm is the best option 
-by giving the time taken by each algorithm as output.
+by giving the time taken by each algorithm as output. Programming language used in this project is Java.
 
 ### Algorithms and data structrures
 
