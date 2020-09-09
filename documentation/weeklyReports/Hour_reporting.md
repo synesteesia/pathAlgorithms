@@ -11,6 +11,9 @@ Date       | time | target |
 
 Date       | time | target |
 -----------|------|--------|
+2020-09-06 | 3 | research, started coding (deleted everything later) |
+2020-09-07 | 3 | wrote multiple versions of Dijkstra|
+2020-09-09 | 4 | wrote multiple versions of AStar |
 
 
 ## Week 3
@@ -41,9 +44,9 @@ Date       | time | target |
  Week   | Time     |
 --------|----------|
  1      | 5      |
- 2      |       |
+ 2      | 10      |
  3      |       |
  4      |       |
  5      |       |
  6      |      |
-**Tot** | **5** |
+**Tot** | **15** |
