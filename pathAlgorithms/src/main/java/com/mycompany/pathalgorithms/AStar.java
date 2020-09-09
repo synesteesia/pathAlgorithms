@@ -12,23 +12,19 @@ import java.util.PriorityQueue;
  *
  * @author mikko
  */
-public class Dijkstra {
+public class AStar {
 
     private final ArrayList<Integer>[] graph;
-    private final int[] distances;
+    private final double[] distances;
     private final boolean[] visited;
 
-    public Dijkstra(ArrayList<Integer>[] graph) {
+    public AStar(ArrayList<Integer>[] graph, double[] estDistances) {
         this.graph = graph;
         this.visited = new boolean[graph.length];
-        this.distances = new int[graph.length];
-
-        for (int i = 0; i < graph.length; i++) {
-            distances[i] = Integer.MAX_VALUE;
-        }
+        this.distances = estDistances;
     }
 
-    public void runDijkstra() {
+    public void runAStar() {
         calculateShortestDistances();
         results();
     }

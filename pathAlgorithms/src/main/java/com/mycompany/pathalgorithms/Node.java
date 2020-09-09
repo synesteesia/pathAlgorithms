@@ -5,44 +5,25 @@
  */
 package com.mycompany.pathalgorithms;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author mikko
  */
 public class Node {
-    
-    private boolean visited;
-    private ArrayList<Edge> edgeList = new ArrayList<Edge>();
-    private int distance = Integer.MAX_VALUE;
-    
-    public int getDistance() {
+
+    private final int index;
+    private final double distance;
+
+    public Node(int index, double distance) {
+        this.index = index;
+        this.distance = distance;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    public double getDistance() {
         return this.distance;
     }
-    
-    public void setDistance(int newDistance){
-        this.distance = newDistance;
-    }
-    
-    public boolean visitedStatus(){
-        return this.visited;
-    }
-    
-    public void setVisitedStatus(boolean visited){
-        this.visited = visited;
-    }
-    
-    public ArrayList<Edge> getEdgeList(){
-        return edgeList;
-    }
-    
-    public void setEdgeList(ArrayList<Edge> edges){
-        this.edgeList = edges;
-    }
-    
-    
-    
-    
-    
 }

@@ -5,15 +5,17 @@
  */
 package com.mycompany.pathalgorithms;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mikko
  */
-public class Graph {
+public class JPS {
     
-    private Node[] nodes;
-    private Edge[] edges;
-    
-    
-    
+    private final ArrayList<Integer>[] graph;
+
+    public JPS(ArrayList<Integer>[] graph) {
+        this.graph = graph;
+    }
 }
