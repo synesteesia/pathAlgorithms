@@ -14,6 +14,7 @@ Date       | time | target |
 2020-09-06 | 3 | research, started coding (deleted everything later) |
 2020-09-07 | 3 | wrote multiple versions of Dijkstra|
 2020-09-09 | 4 | wrote multiple versions of AStar |
+2020-09-10 | 1 | javadoc and checkstyle configuration |
 
 
 ## Week 3
@@ -44,9 +45,9 @@ Date       | time | target |
  Week   | Time     |
 --------|----------|
  1      | 5      |
- 2      | 10      |
+ 2      | 11      |
  3      |       |
  4      |       |
  5      |       |
  6      |      |
-**Tot** | **15** |
+**Tot** | **16** |
