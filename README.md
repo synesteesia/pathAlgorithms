@@ -24,7 +24,7 @@ Checkstyle is run with command
  mvn jxr:jxr checkstyle:checkstyle
 ```
 
-Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
+Possible errors can be read by opening file _target/site/checkstyle.html_ with browser.
 
 ### JavaDoc
 
