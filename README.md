@@ -16,7 +16,8 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 ### Checkstyle
 
 Checkstyle is configured in the file [checkstyle.xml](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/checkstyle.xml).
-Checkstyle is run with command.
+
+Checkstyle is run with command
 
 
 ```
