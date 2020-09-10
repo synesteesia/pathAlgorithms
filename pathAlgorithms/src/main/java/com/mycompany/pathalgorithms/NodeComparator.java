@@ -18,7 +18,7 @@ public class NodeComparator implements Comparator<Node> {
         double difference = t.getDistance() - t1.getDistance();
         if (difference < 0) {
             return -1;
-        } else if (difference > 0){
+        } else if (difference > 0) {
             return 1;
         }
         return 0;

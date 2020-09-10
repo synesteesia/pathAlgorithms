@@ -17,6 +17,9 @@ public class Dijkstra {
     private final ArrayList<Integer>[] graph;
     private final int[] distances;
     private final boolean[] visited;
+    /**
+     * Contains Dijkstra's algorithm as method
+     */
 
     public Dijkstra(ArrayList<Integer>[] graph) {
         this.graph = graph;
@@ -28,11 +31,17 @@ public class Dijkstra {
         }
     }
 
+    /**
+     * Runs Dijkstra's algorithm and prints results
+     */
     public void runDijkstra() {
         calculateShortestDistances();
         results();
     }
 
+    /**
+     * Dijkstra algorithm
+     */
     public void calculateShortestDistances() {
         // node 0 as source
         distances[0] = 0;
@@ -58,6 +67,9 @@ public class Dijkstra {
         }
     }
 
+    /**
+     * Prints results
+     */
     public void results() {
         String output = "Number of nodes = " + this.graph.length;
         for (int i = 0; i < this.graph.length; i++) {

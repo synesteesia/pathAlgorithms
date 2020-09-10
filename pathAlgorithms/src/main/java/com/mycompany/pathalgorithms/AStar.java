@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
- *
  * @author mikko
  */
 public class AStar {
@@ -17,6 +16,9 @@ public class AStar {
     private final ArrayList<Integer>[] graph;
     private final double[] distances;
     private final boolean[] visited;
+    /**
+     * Contains A star algorithm as method
+     */
 
     public AStar(ArrayList<Integer>[] graph, double[] estDistances) {
         this.graph = graph;
@@ -24,11 +26,17 @@ public class AStar {
         this.distances = estDistances;
     }
 
+    /**
+     * Runs A star algorithm and prints results
+     */
     public void runAStar() {
         calculateShortestDistances();
         results();
     }
 
+    /**
+     * A star algorithm
+     */
     public void calculateShortestDistances() {
         // node 0 as source
         distances[0] = 0;
@@ -54,6 +62,9 @@ public class AStar {
         }
     }
 
+    /**
+     * Prints results
+     */
     public void results() {
         String output = "Number of nodes = " + this.graph.length;
         for (int i = 0; i < this.graph.length; i++) {
