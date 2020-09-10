@@ -13,4 +13,27 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 
 * [Weekly report #1](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_1.md)
 
+### Checkstyle
+
+Checkstyle is configured in the file [checkstyle.xml](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/checkstyle.xml).
+Checkstyle is run with command.
+
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
+
+### JavaDoc
+
+JavaDoc is generated with command
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDoc can be read by opening file _target/site/apidocs/index.html_ with browser.
+
+
 
