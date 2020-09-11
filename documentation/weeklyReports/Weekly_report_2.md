@@ -2,7 +2,7 @@
 
 [Hour reporting](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Hour_reporting.md)
 
-## What has happened during week 1
+## What has happened during week 2
 
 * Research into project algorithms
 * Project configuration
