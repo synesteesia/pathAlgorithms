@@ -21,8 +21,7 @@ public class Dijkstra {
     /**
      * Contains Dijkstra's algorithm as method
      */
-
-    public void initialise(ArrayList<Integer>[] graph) {
+    public int[] runDijkstra(ArrayList<Integer>[] graph) {
         this.graph = graph;
         this.visited = new boolean[graph.length];
         this.distances = new int[graph.length];
@@ -30,20 +29,15 @@ public class Dijkstra {
         for (int i = 0; i < graph.length; i++) {
             distances[i] = Integer.MAX_VALUE;
         }
-    }
-
-    /**
-     * Runs Dijkstra's algorithm and prints results
-     */
-    public void runDijkstra() {
-        calculateShortestDistances();
+        run();
         results();
+        return distances;
     }
 
     /**
      * Dijkstra algorithm
      */
-    public void calculateShortestDistances() {
+    private void run() {
         // node 0 as source
         distances[0] = 0;
         PriorityQueue<Node> heap = new PriorityQueue(new NodeComparator());
@@ -85,7 +79,8 @@ public class Dijkstra {
     public int[] getDistances() {
         return distances;
     }
-        /**
+
+    /**
      * Getter for tests
      */
     public boolean[] getVisited() {

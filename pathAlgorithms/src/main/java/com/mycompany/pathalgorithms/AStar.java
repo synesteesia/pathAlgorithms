@@ -14,30 +14,34 @@ import java.util.PriorityQueue;
 public class AStar {
 
     private ArrayList<Integer>[] graph;
+    private double[] hScore;
     private double[] distances;
-    private boolean[] visited;
-    /**
-     * Contains A star algorithm as method
-     */
 
-    public void initialise(ArrayList<Integer>[] graph, double[] estDistances) {
+    /**
+     * Runs A star algorithm and prints results.
+     *
+     * @param graph Graph represented as an adjacency list
+     * @param hScore List of estimated distances to target
+     * @return A double array of distances from starting node.
+     */
+    public double[] runAStar(ArrayList<Integer>[] graph, double[] hScore) {
         this.graph = graph;
-        this.visited = new boolean[graph.length];
-        this.distances = estDistances;
-    }
+        this.hScore = hScore;
+        this.distances = new double[hScore.length];
 
-    /**
-     * Runs A star algorithm and prints results
-     */
-    public void runAStar() {
-        calculateShortestDistances();
+        for (int i = 0; i < distances.length; i++) {
+            distances[i] = Integer.MAX_VALUE;
+        }
+
+        run();
         results();
+        return distances;
     }
 
     /**
-     * A star algorithm
+     * A star algorithm.
      */
-    public void calculateShortestDistances() {
+    public void run() {
         // node 0 as source
         distances[0] = 0;
         PriorityQueue<Node> heap = new PriorityQueue(new NodeComparator());
@@ -45,19 +49,12 @@ public class AStar {
 
         while (!heap.isEmpty()) {
             int node = heap.poll().getIndex();
-            if (visited[node]) {
-                continue;
-            }
 
-            visited[node] = true;
             for (int neighbour : this.graph[node]) {
-                // only if not visited
-                if (!visited[neighbour]) {
                     if (distances[node] + 1 < distances[neighbour]) {
                         distances[neighbour] = distances[node] + 1;
-                        heap.add(new Node(neighbour, distances[neighbour]));
+                        heap.add(new Node(neighbour, distances[neighbour] + hScore[neighbour]));
                     }
-                }
             }
         }
     }
@@ -72,18 +69,12 @@ public class AStar {
         }
         System.out.println(output);
     }
-    
-        /**
+
+    /**
      * Getter for tests
      */
     public double[] getDistances() {
         return distances;
-    }
-        /**
-     * Getter for tests
-     */
-    public boolean[] getVisited() {
-        return visited;
     }
 
 }
