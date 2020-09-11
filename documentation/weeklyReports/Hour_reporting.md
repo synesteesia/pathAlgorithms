@@ -15,6 +15,7 @@ Date       | time | target |
 2020-09-07 | 3 | wrote multiple versions of Dijkstra|
 2020-09-09 | 4 | wrote multiple versions of AStar |
 2020-09-10 | 1 | javadoc and checkstyle configuration |
+2020-09-11 | 2 | Junit and jacoco conficuration, documentation |
 
 
 ## Week 3
@@ -45,9 +46,9 @@ Date       | time | target |
  Week   | Time     |
 --------|----------|
  1      | 5      |
- 2      | 11      |
+ 2      | 13      |
  3      |       |
  4      |       |
  5      |       |
  6      |      |
-**Tot** | **16** |
+**Tot** | **18** |
