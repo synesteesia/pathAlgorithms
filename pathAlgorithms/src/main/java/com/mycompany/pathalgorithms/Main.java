@@ -5,10 +5,17 @@
  */
 package com.mycompany.pathalgorithms;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mikko
  */
 public class Main {
+    
+    public static void main(String[] args) {
+
+    
+    }
     
 }

@@ -13,14 +13,14 @@ import java.util.PriorityQueue;
  */
 public class AStar {
 
-    private final ArrayList<Integer>[] graph;
-    private final double[] distances;
-    private final boolean[] visited;
+    private ArrayList<Integer>[] graph;
+    private double[] distances;
+    private boolean[] visited;
     /**
      * Contains A star algorithm as method
      */
 
-    public AStar(ArrayList<Integer>[] graph, double[] estDistances) {
+    public void initialise(ArrayList<Integer>[] graph, double[] estDistances) {
         this.graph = graph;
         this.visited = new boolean[graph.length];
         this.distances = estDistances;
@@ -71,6 +71,19 @@ public class AStar {
             output += ("\nThe shortest distance from node 0 to node " + i + " is " + distances[i]);
         }
         System.out.println(output);
+    }
+    
+        /**
+     * Getter for tests
+     */
+    public double[] getDistances() {
+        return distances;
+    }
+        /**
+     * Getter for tests
+     */
+    public boolean[] getVisited() {
+        return visited;
     }
 
 }

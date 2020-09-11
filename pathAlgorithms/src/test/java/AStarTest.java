@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import com.mycompany.pathalgorithms.Dijkstra;
+import com.mycompany.pathalgorithms.AStar;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,42 +17,38 @@ import static org.junit.Assert.*;
  *
  * @author mikko
  */
-public class DijkstraTest {
+public class AStarTest {
     
-    private Dijkstra dijkstra;
-
+    private AStar aStar;
+    
+    public AStarTest() {
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
-        dijkstra = new Dijkstra();
+        aStar = new AStar();
     }
-
+    
     @After
     public void tearDown() {
     }
-
-    @Test
+    
+        @Test
     public void initialiseWorks() {
         ArrayList<Integer>[] graph = new ArrayList[25];
-        dijkstra.initialise(graph);
-        assertEquals(25, dijkstra.getDistances().length);
-        assertEquals(Integer.MAX_VALUE, dijkstra.getDistances()[10]);
-        assertEquals(25, dijkstra.getVisited().length);
-        assertFalse(dijkstra.getVisited()[10]);
-    }
-
-    @Test
-    public void runDijkstraWorks() {
-        ArrayList<Integer>[] graph = new ArrayList[25];
-        dijkstra.initialise(graph);
-        
+        double[] distances = new double[25];
+        aStar.initialise(graph, distances);
+        assertEquals(25, aStar.getDistances().length);
+        assertEquals(25, aStar.getVisited().length);
+        assertFalse(aStar.getVisited()[10]);
     }
 
 }
