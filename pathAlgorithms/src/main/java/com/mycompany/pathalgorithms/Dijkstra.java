@@ -14,14 +14,15 @@ import java.util.PriorityQueue;
  */
 public class Dijkstra {
 
-    private final ArrayList<Integer>[] graph;
-    private final int[] distances;
-    private final boolean[] visited;
+    private ArrayList<Integer>[] graph;
+    private int[] distances;
+    private boolean[] visited;
+
     /**
      * Contains Dijkstra's algorithm as method
      */
 
-    public Dijkstra(ArrayList<Integer>[] graph) {
+    public void initialise(ArrayList<Integer>[] graph) {
         this.graph = graph;
         this.visited = new boolean[graph.length];
         this.distances = new int[graph.length];
@@ -76,6 +77,19 @@ public class Dijkstra {
             output += ("\nThe shortest distance from node 0 to node " + i + " is " + distances[i]);
         }
         System.out.println(output);
+    }
+
+    /**
+     * Getter for tests
+     */
+    public int[] getDistances() {
+        return distances;
+    }
+        /**
+     * Getter for tests
+     */
+    public boolean[] getVisited() {
+        return visited;
     }
 
 }
