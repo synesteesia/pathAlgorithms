@@ -36,5 +36,20 @@ mvn javadoc:javadoc
 
 JavaDoc can be read by opening file _target/site/apidocs/index.html_ with browser.
 
+### Testing
+
+Tests are run with command
+
+```
+mvn test
+```
+Testing report is created with command
+
+```
+mvn jacoco:report
+```
+
+Test report can be read by opening the file _target/site/jacoco/index.html_ with browser.
+
 
 
