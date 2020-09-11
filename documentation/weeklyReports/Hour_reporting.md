@@ -16,6 +16,7 @@ Date       | time | target |
 2020-09-09 | 4 | wrote multiple versions of AStar |
 2020-09-10 | 1 | javadoc and checkstyle configuration |
 2020-09-11 | 2 | Junit and jacoco conficuration, documentation |
+2020-09-11 | 2 | tests |
 
 
 ## Week 3
@@ -46,9 +47,9 @@ Date       | time | target |
  Week   | Time     |
 --------|----------|
  1      | 5      |
- 2      | 13      |
+ 2      | 15      |
  3      |       |
  4      |       |
  5      |       |
  6      |      |
-**Tot** | **18** |
+**Tot** | **20** |
