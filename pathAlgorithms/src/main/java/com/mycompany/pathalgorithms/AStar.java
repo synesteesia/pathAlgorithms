@@ -22,7 +22,7 @@ public class AStar {
      *
      * @param graph Graph represented as an adjacency list
      * @param hScore List of estimated distances to target
-     * @return A double array of distances from starting node.
+     * @return A double array of distances from starting vertex.
      */
     public double[] runAStar(ArrayList<Integer>[] graph, double[] hScore) {
         this.graph = graph;
@@ -42,18 +42,18 @@ public class AStar {
      * A star algorithm.
      */
     public void run() {
-        // node 0 as source
+        // vertex 0 as source
         distances[0] = 0;
-        PriorityQueue<Node> heap = new PriorityQueue(new NodeComparator());
-        heap.add(new Node(0, 0));
+        PriorityQueue<Vertex> heap = new PriorityQueue(new VertexComparator());
+        heap.add(new Vertex(0, 0));
 
         while (!heap.isEmpty()) {
-            int node = heap.poll().getIndex();
+            int vertex = heap.poll().getIndex();
 
-            for (int neighbour : this.graph[node]) {
-                    if (distances[node] + 1 < distances[neighbour]) {
-                        distances[neighbour] = distances[node] + 1;
-                        heap.add(new Node(neighbour, distances[neighbour] + hScore[neighbour]));
+            for (int neighbour : this.graph[vertex]) {
+                    if (distances[vertex] + 1 < distances[neighbour]) {
+                        distances[neighbour] = distances[vertex] + 1;
+                        heap.add(new Vertex(neighbour, distances[neighbour] + hScore[neighbour]));
                     }
             }
         }
@@ -63,9 +63,9 @@ public class AStar {
      * Prints results
      */
     public void results() {
-        String output = "Number of nodes = " + this.graph.length;
+        String output = "Number of vertices = " + this.graph.length;
         for (int i = 0; i < this.graph.length; i++) {
-            output += ("\nThe shortest distance from node 0 to node " + i + " is " + distances[i]);
+            output += ("\nThe shortest distance from vertex 0 to vertex " + i + " is " + distances[i]);
         }
         System.out.println(output);
     }

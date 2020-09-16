@@ -11,10 +11,10 @@ import java.util.Comparator;
  *
  * @author mikko
  */
-public class NodeComparator implements Comparator<Node> {
+public class VertexComparator implements Comparator<Vertex> {
 
     @Override
-    public int compare(Node t, Node t1) {
+    public int compare(Vertex t, Vertex t1) {
         double difference = t.getDistance() - t1.getDistance();
         if (difference < 0) {
             return -1;

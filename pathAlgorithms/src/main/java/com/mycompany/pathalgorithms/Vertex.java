@@ -9,12 +9,12 @@ package com.mycompany.pathalgorithms;
  *
  * @author mikko
  */
-public class Node {
+public class Vertex {
 
     private final int index;
     private final double distance;
 
-    public Node(int index, double distance) {
+    public Vertex(int index, double distance) {
         this.index = index;
         this.distance = distance;
     }
