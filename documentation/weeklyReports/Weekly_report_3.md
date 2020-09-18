@@ -11,7 +11,8 @@
 
 ## Problems
 
-Planning of project structure
+Planning of project structure. 
+Probably used more than 10 hours this week, forgot to keep track.
 
 ## Next week
 
