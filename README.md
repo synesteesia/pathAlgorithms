@@ -40,6 +40,8 @@ JavaDoc can be read by opening file _target/site/apidocs/index.html_ with browse
 
 ### Testing
 
+Current test coverage 76%, 
+some code should be ignored, for example Main class has redundant code.
 Tests are run with command
 
 ```
