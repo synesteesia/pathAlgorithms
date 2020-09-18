@@ -23,6 +23,8 @@ Date       | time | target |
 
 Date       | time | target |
 -----------|------|--------|
+2020-09-17 | 5 | parser and graph class |
+2020-09-18 | 5 | tests|
 
 
 ## Week 4
