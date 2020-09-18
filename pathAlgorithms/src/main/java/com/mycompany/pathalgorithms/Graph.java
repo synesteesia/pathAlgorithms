@@ -14,11 +14,13 @@ import java.util.Arrays;
  */
 public class Graph {
 
+    private final String[] map;
     private final ArrayList<Integer>[] arrayGraph;
     private int startVertex;
     private int endVertex;
 
-    public Graph(int vertices, int start, int end) {
+    public Graph(String[] map, int vertices, int start, int end) {
+        this.map = map;
         arrayGraph = new ArrayList[vertices];
         startVertex = start;
         endVertex = end;

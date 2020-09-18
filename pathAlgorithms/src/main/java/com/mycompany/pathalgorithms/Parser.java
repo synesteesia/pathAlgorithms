@@ -13,37 +13,46 @@ import java.io.*;
 
 public class Parser {
 
-    public static char[][] readFile(String filePath) {
+    public static final String ERROR_NO_SUCH_FILE = "File not found";
+    public static final String ERROR_WRONG_FORMAT = "File has incorrect format";
+    public static final String ERROR_READING_FILE = "Error reading file: ";
+
+    public static String[] readFile(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
 
-            String line;
-            int height = 0, width = 0;
-            while (!(line = br.readLine()).startsWith("map")) {
+            String line = br.readLine();
+            int height = 0;
+            while (line != null && !line.startsWith("map")) {
                 if (line.startsWith("height")) {
                     height = Integer.parseInt(line.split(" ")[1]);
-                } else if (line.startsWith("width")) {
-                    width = Integer.parseInt(line.split(" ")[1]);
                 }
+                line = br.readLine();
             }
 
-            char[][] grid = new char[height][width];
+            if (height == 0 || line == null) {
+                System.out.println(ERROR_WRONG_FORMAT);
+                return null;
+            }
+
+            String[] grid = new String[height];
             int j = 0;
 
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
-
-                for (int i = 0; i < line.length(); i++) {
-                    grid[i][j] = line.charAt(i);
-                    i++;
+                if (j >= height) {
+                    System.out.println(ERROR_WRONG_FORMAT);
+                    return null;
                 }
+
+                grid[j] = line;
                 j++;
             }
 
             return grid;
 
+        } catch (FileNotFoundException e) {
+            System.out.println(ERROR_NO_SUCH_FILE);
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
-
+            System.out.println(ERROR_READING_FILE + e.getMessage());
         }
 
         return null;
@@ -64,21 +73,21 @@ public class Parser {
      * @return A {@link Graph} containing an adjacency list of the graph and the
      * IDs of the start and end vertices.
      */
-    public Graph parseGrid(char[][] grid, int startX, int startY, int endX, int endY) {
-        int cols = grid[0].length;
-        Graph graph = new Graph(grid.length * cols, startX + startY * cols, endX + endY * cols);
+    public static Graph parseGrid(String[] grid, int startX, int startY, int endX, int endY) {
+        int cols = grid[0].length();
+        Graph graph = new Graph(grid, grid.length * cols, startX + startY * cols, endX + endY * cols);
 
         int current;
 
         for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
+            for (int j = 0; j < cols; j++) {
                 current = j + i * cols;
-                if (grid[i][j] == '.') {
-                    if (j < cols - 1 && grid[i][j + 1] == '.') {
+                if (".".equals(String.valueOf(grid[i].charAt(j)))) {
+                    if (j < cols - 1 && ".".equals(String.valueOf(grid[i].charAt(j + 1)))) {
                         graph.addAdjacent(j + 1 + i * cols, current);
                     }
-                    if (i < grid.length - 1 && grid[i + 1][j] == '.') {
-                        graph.addAdjacent(j + cols + i * cols, current);
+                    if (i < grid.length - 1 && ".".equals(String.valueOf(grid[i + 1].charAt(j)))) {
+                        graph.addAdjacent(j + (i + 1) * cols, current);
                     }
 
                 } else {
