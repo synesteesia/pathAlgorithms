@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pathalgorithms;
+package pathalgorithms;
 
 /**
  *
@@ -17,8 +17,19 @@ public class Parser {
     public static final String ERROR_WRONG_FORMAT = "File has incorrect format";
     public static final String ERROR_READING_FILE = "Error reading file: ";
 
-    public static String[] readFile(String filePath) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+    public static String[] readFile(String fileName) {
+        
+        String filePath = "./";
+        String fileEnd = ".map";
+        
+        if (fileName.contains("./src/test/")){
+            filePath = "";
+        }
+        if(fileName.contains(".map")){
+            fileEnd = "";
+        }
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath + fileName + fileEnd))) {
 
             String line = br.readLine();
             int height = 0;

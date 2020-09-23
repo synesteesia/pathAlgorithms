@@ -3,45 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pathalgorithms;
+package pathalgorithms;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
+ *
  * @author mikko
  */
-public class AStar {
+public class Dijkstra {
 
     private ArrayList<Integer>[] graph;
-    private double[] hScore;
-    private double[] distances;
+    private int[] distances;
+    private boolean[] visited;
 
     /**
-     * Runs A star algorithm and prints results.
-     *
-     * @param graph Graph represented as an adjacency list
-     * @param hScore List of estimated distances to target
-     * @return A double array of distances from starting vertex.
+     * Contains Dijkstra's algorithm as method
      */
-    public double[] runAStar(ArrayList<Integer>[] graph, double[] hScore) {
+    public int[] runDijkstra(ArrayList<Integer>[] graph) {
         this.graph = graph;
-        this.hScore = hScore;
-        this.distances = new double[hScore.length];
+        this.visited = new boolean[graph.length];
+        this.distances = new int[graph.length];
 
-        for (int i = 0; i < distances.length; i++) {
+        for (int i = 0; i < graph.length; i++) {
             distances[i] = Integer.MAX_VALUE;
         }
-
         run();
         results();
         return distances;
     }
 
     /**
-     * A star algorithm.
+     * Dijkstra algorithm
      */
-    public void run() {
+    private void run() {
         // vertex 0 as source
         distances[0] = 0;
         PriorityQueue<Vertex> heap = new PriorityQueue(new VertexComparator());
@@ -49,12 +45,19 @@ public class AStar {
 
         while (!heap.isEmpty()) {
             int vertex = heap.poll().getIndex();
+            if (visited[vertex]) {
+                continue;
+            }
 
+            visited[vertex] = true;
             for (int neighbour : this.graph[vertex]) {
+                // only if not visited
+                if (!visited[neighbour]) {
                     if (distances[vertex] + 1 < distances[neighbour]) {
                         distances[neighbour] = distances[vertex] + 1;
-                        heap.add(new Vertex(neighbour, distances[neighbour] + hScore[neighbour]));
+                        heap.add(new Vertex(neighbour, distances[neighbour]));
                     }
+                }
             }
         }
     }
@@ -63,7 +66,7 @@ public class AStar {
      * Prints results
      */
     public void results() {
-        String output = "Number of vertices = " + this.graph.length;
+        String output = "Number of verteces = " + this.graph.length;
         for (int i = 0; i < this.graph.length; i++) {
             output += ("\nThe shortest distance from vertex 0 to vertex " + i + " is " + distances[i]);
         }
@@ -73,8 +76,15 @@ public class AStar {
     /**
      * Getter for tests
      */
-    public double[] getDistances() {
+    public int[] getDistances() {
         return distances;
+    }
+
+    /**
+     * Getter for tests
+     */
+    public boolean[] getVisited() {
+        return visited;
     }
 
 }

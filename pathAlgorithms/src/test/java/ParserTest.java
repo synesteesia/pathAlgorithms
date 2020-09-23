@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-import com.mycompany.pathalgorithms.Graph;
+import pathalgorithms.Graph;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.mycompany.pathalgorithms.Parser;
+import pathalgorithms.Parser;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 

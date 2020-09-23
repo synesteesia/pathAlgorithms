@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pathalgorithms;
+package pathalgorithms;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
  * @author mikko
  */
-public class JPS {
-    
-    private final ArrayList<Integer>[] graph;
+public class Main {
 
-    public JPS(ArrayList<Integer>[] graph) {
-        this.graph = graph;
+    public static void main(String[] args) {
+       Scanner in = new Scanner(System.in);
+        Ui.runNew(in);
     }
 }

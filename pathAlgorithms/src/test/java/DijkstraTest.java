@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import com.mycompany.pathalgorithms.Dijkstra;
+import pathalgorithms.Dijkstra;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.Before;
