@@ -15,6 +15,24 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 * [Weekly report #2](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_2.md)
 * [Weekly report #3](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_3.md)
 
+### generating an executable jar
+
+command
+
+```
+mvn package
+```
+
+generates a jar file to _target_ folder.
+
+### running the jar file
+
+command
+
+```
+java -jar pathAlgorithms.jar
+```
+
 ### Checkstyle
 
 Checkstyle is configured in the file [checkstyle.xml](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/checkstyle.xml).
