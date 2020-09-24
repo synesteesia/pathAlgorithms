@@ -6,6 +6,9 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 ## Links to documentation
 
 ### [Project definition](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/project_definition.md)
+### [Instructions](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/Instructions.md)
+### [Test document](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/testDocument.md)
+### [Implementation Document](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/implementationDocument.md)
 
 
 
@@ -14,6 +17,7 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 * [Weekly report #1](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_1.md)
 * [Weekly report #2](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_2.md)
 * [Weekly report #3](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_3.md)
+* [Weekly report #4](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_4.md)
 
 ### generating an executable jar
 
@@ -58,8 +62,6 @@ JavaDoc can be read by opening file _target/site/apidocs/index.html_ with browse
 
 ### Testing
 
-Current test coverage 76%, 
-some code should be ignored, for example Main class has redundant code.
 Tests are run with command
 
 ```
