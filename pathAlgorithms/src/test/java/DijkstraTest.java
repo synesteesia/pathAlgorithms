@@ -10,6 +10,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pathalgorithms.Graph;
 
 /**
  *
@@ -18,23 +19,25 @@ import static org.junit.Assert.*;
 public class DijkstraTest {
     
     private Dijkstra dijkstra;
-    private ArrayList<Integer>[] emptyGraph;
-    private ArrayList<Integer>[] smallGraph;
+    private Graph emptyGraph;
+    private Graph smallGraph;
 
     @Before
     public void setUp() {
         dijkstra = new Dijkstra();
-        emptyGraph = new ArrayList[25];
+        ArrayList<Integer>[] adjacencyList = new ArrayList[25];
         for (int i = 0; i < 25; i++) {
-            emptyGraph[i] = new ArrayList<>();
+            adjacencyList[i] = new ArrayList<>();
         }
-        smallGraph = new ArrayList[6];
-        smallGraph[0] = new ArrayList<>(Arrays.asList(1,2));
-        smallGraph[1] = new ArrayList<>(Arrays.asList(0,3,4));
-        smallGraph[2] = new ArrayList<>(Arrays.asList(0));
-        smallGraph[3] = new ArrayList<>(Arrays.asList(1,5));
-        smallGraph[4] = new ArrayList<>(Arrays.asList(1));
-        smallGraph[5] = new ArrayList<>(Arrays.asList(3));
+        emptyGraph = new Graph(adjacencyList);
+        adjacencyList = new ArrayList[6];
+        adjacencyList[0] = new ArrayList<>(Arrays.asList(1,2));
+        adjacencyList[1] = new ArrayList<>(Arrays.asList(0,3,4));
+        adjacencyList[2] = new ArrayList<>(Arrays.asList(0));
+        adjacencyList[3] = new ArrayList<>(Arrays.asList(1,5));
+        adjacencyList[4] = new ArrayList<>(Arrays.asList(1));
+        adjacencyList[5] = new ArrayList<>(Arrays.asList(3));
+        smallGraph = new Graph(adjacencyList);
     }
 
     @Test
@@ -50,15 +53,13 @@ public class DijkstraTest {
     @Test
     public void dijkstraWorksOnSmallGraph() {
         int[] distances = dijkstra.runDijkstra(smallGraph);
-        assertEquals(smallGraph.length, distances.length);
+        assertEquals(smallGraph.getNVertices(), distances.length);
         boolean[] visited = dijkstra.getVisited();
         assertTrue(distances[0] == 0 && visited[0]);
         assertTrue(distances[1] == 1 && visited[1]);
         assertTrue(distances[2] == 1 && visited[2]);
         assertTrue(distances[3] == 2 && visited[3]);
         assertTrue(distances[4] == 2 && visited[4]);
-        assertTrue(distances[5] == 3 && visited[5]);
+        assertTrue(distances[5] == 3 && !visited[5]);
     }
 }
-
-

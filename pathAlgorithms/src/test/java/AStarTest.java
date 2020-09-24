@@ -10,6 +10,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pathalgorithms.Graph;
 
 /**
  *
@@ -18,39 +19,30 @@ import static org.junit.Assert.*;
 public class AStarTest {
 
     private AStar aStar;
-    ArrayList<Integer>[] emptyGraph;
-    double[] emptyDistances;
-    ArrayList<Integer>[] smallGraph;
-    double[] smallDistances;
+    private Graph emptyGraph;
+    private Graph smallGraph;
 
     @Before
     public void setUp() {
         aStar = new AStar();
-        emptyGraph = new ArrayList[25];
-        emptyDistances = new double[25];
+        ArrayList<Integer>[] adjacencyList = new ArrayList[25];
         for (int i = 0; i < 25; i++) {
-            emptyGraph[i] = new ArrayList<>();
-            emptyDistances[i] = i + 0.5;
+            adjacencyList[i] = new ArrayList<>();
         }
-        smallGraph = new ArrayList[6];
-        smallDistances = new double[6];
-        smallGraph[0] = new ArrayList<>(Arrays.asList(1, 2));
-        smallGraph[1] = new ArrayList<>(Arrays.asList(0, 3, 4));
-        smallGraph[2] = new ArrayList<>(Arrays.asList(0));
-        smallGraph[3] = new ArrayList<>(Arrays.asList(1, 5));
-        smallGraph[4] = new ArrayList<>(Arrays.asList(1));
-        smallGraph[5] = new ArrayList<>(Arrays.asList(3));
-        smallDistances[0] = 4;
-        smallDistances[1] = 3;
-        smallDistances[2] = 10;
-        smallDistances[3] = 2;
-        smallDistances[4] = 2;
-        smallDistances[5] = 0;
+        emptyGraph = new Graph(adjacencyList);
+        adjacencyList = new ArrayList[6];
+        adjacencyList[0] = new ArrayList<>(Arrays.asList(1, 2));
+        adjacencyList[1] = new ArrayList<>(Arrays.asList(0, 3, 4));
+        adjacencyList[2] = new ArrayList<>(Arrays.asList(0));
+        adjacencyList[3] = new ArrayList<>(Arrays.asList(1, 5));
+        adjacencyList[4] = new ArrayList<>(Arrays.asList(1));
+        adjacencyList[5] = new ArrayList<>(Arrays.asList(3));
+        smallGraph = new Graph(adjacencyList);
     }
 
     @Test
     public void runAStarWorksOnEmptyGraph() {
-        double[] distances = aStar.runAStar(emptyGraph, emptyDistances);
+        double[] distances = aStar.runAStar(emptyGraph);
         assertEquals(25, distances.length);
         assertTrue(distances[0] == 0);
         for (int i = 1; i < 25; i++) {
@@ -60,8 +52,8 @@ public class AStarTest {
 
     @Test
     public void runAStarWorksOnSmallGraph() {
-        double[] distances = aStar.runAStar(smallGraph, smallDistances);
-        assertEquals(smallGraph.length, distances.length);
+        double[] distances = aStar.runAStar(smallGraph);
+        assertEquals(smallGraph.getNVertices(), distances.length);
         assertTrue(distances[0] == 0);
         assertTrue(distances[1] == 1);
         assertTrue(distances[2] == 1);

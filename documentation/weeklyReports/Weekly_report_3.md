@@ -1,8 +1,8 @@
-# Week 2
+# Week 3
 
 [Hour reporting](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Hour_reporting.md)
 
-## What has happened during week 2
+## What has happened during week 3
 
 * Research
 * Parser and graph class

@@ -26,6 +26,13 @@ public class Graph {
         endVertex = end;
     }
 
+    public Graph(ArrayList<Integer>[] adjacencyLists) {
+        map = null;
+        arrayGraph = adjacencyLists;
+        startVertex = 0;
+        endVertex = adjacencyLists.length - 1;
+    }
+
     public void addAdjacent(int from, int to) {
         if (arrayGraph[from] == null) {
             arrayGraph[from] = new ArrayList<>(Arrays.asList(to));
@@ -64,4 +71,7 @@ public class Graph {
         this.endVertex = endVertex;
     }
 
+    public int getNVertices() {
+        return this.arrayGraph.length;
+    }
 }

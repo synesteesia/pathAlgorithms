@@ -13,45 +13,58 @@ import java.util.Scanner;
  */
 public class Ui {
 
+    public static void runNew(Scanner in) {
 
-public static void runNew(Scanner in) {
+        boolean run = true;
+        while (run) {
+            String[] grid = null;
 
-        System.out.println("Place the map file in project root and write the filename on next line:");
-        String fileName = in.nextLine();
-        String[] grid = Parser.readFile(fileName); // alota alusta jos heittaa erroria
+            while (grid == null) {
+                System.out.println("Write the absoulte path to the map file on the next line:");
+                String fileName = in.nextLine();
+                grid = Parser.readFile(fileName);
+            }
 
-        Graph graphh = coordinates(in, grid);
+            Graph graph = coordinates(in, grid);
 
-        Dijkstra dijkstraa = new Dijkstra();
-        dijkstraa.runDijkstra(graphh.getArrayGraph());
+            System.out.println("Running Dijkstra...");
+            Dijkstra dijkstra = new Dijkstra();
+            dijkstra.runDijkstra(graph);
 
-        double[] distances = new double[6]; //???
-        AStar aStarr = new AStar();
-        aStarr.runAStar(graphh.getArrayGraph(), distances);
+            System.out.println("Running AStar...");
+            AStar aStar = new AStar();
+            aStar.runAStar(graph);
 
-        System.out.println("would you like to run another test? y/n");
-        String answer = in.nextLine();
-        if (answer.contains("y")) {
-            runNew(in);
+            System.out.println("would you like to run another test? y/n");
+            String answer = in.nextLine();
+            run = answer.toLowerCase().equals("y");
         }
-        
-        return;
 
     }
 
-    public static Graph coordinates(Scanner in, String[] grid) {
-        System.out.println("Give X coordinate of start vertex"); //check etta ei oo miinus tai out of bound kaikkiin
-        int startX = Integer.parseInt(in.nextLine());
-        System.out.println("Give Y coordinate of start vertex");
-        int startY = Integer.parseInt(in.nextLine());
-        System.out.println("Give X coordinate of goal vertex");
-        int goalX = Integer.parseInt(in.nextLine());
-        System.out.println("Give Y coordinate of goal vertex");
-        int goalY = Integer.parseInt(in.nextLine());
+    private static Graph coordinates(Scanner in, String[] grid) {
+        int startX = promptCoordinate(in, "Give X coordinate of start vertex", grid[0].length());
+        int startY = promptCoordinate(in, "Give Y coordinate of start vertex", grid.length);
+        int goalX = promptCoordinate(in, "Give X coordinate of goal vertex", grid[0].length());
+        int goalY = promptCoordinate(in, "Give Y coordinate of goal vertex", grid.length);
 
         return Parser.parseGrid(grid, startX, startY, goalX, goalY);
     }
 
+    private static int promptCoordinate(Scanner in, String prompt, int maxValue) {
+        int coord = -1;
+        while (coord == -1) {
+            System.out.println(prompt);
+            try {
+                coord = Integer.parseInt(in.nextLine());
+                if (coord > maxValue || coord < 0) {
+                    System.out.println("Please provide an integer between 0 and " + maxValue + ", inclusive");
+                }
+            } catch (NumberFormatException ex) {
+                System.out.println("Please give a valid integer");
+            }
+        }
 
-    
+        return coord;
+    }
 }

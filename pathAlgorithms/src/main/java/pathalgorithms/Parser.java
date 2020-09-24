@@ -18,18 +18,8 @@ public class Parser {
     public static final String ERROR_READING_FILE = "Error reading file: ";
 
     public static String[] readFile(String fileName) {
-        
-        String filePath = "./";
-        String fileEnd = ".map";
-        
-        if (fileName.contains("./src/test/")){
-            filePath = "";
-        }
-        if(fileName.contains(".map")){
-            fileEnd = "";
-        }
-        
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath + fileName + fileEnd))) {
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
             String line = br.readLine();
             int height = 0;

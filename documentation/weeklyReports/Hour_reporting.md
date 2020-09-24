@@ -31,6 +31,9 @@ Date       | time | target |
 
 Date       | time | target |
 -----------|------|--------|
+2020-09-17 | 3 | ui class, project structure, packaging|
+2020-09-18 | 5 | ui class, project structure|
+2020-09-18 | 3 | bugs and documentation|
 
 
 ## Week 5
@@ -51,7 +54,7 @@ Date       | time | target |
  1      | 5      |
  2      | 15      |
  3      | 10     |
- 4      |       |
+ 4      | 11      |
  5      |       |
  6      |      |
-**Tot** | **30** |
+**Tot** | **41** |

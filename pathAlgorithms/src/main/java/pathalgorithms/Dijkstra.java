@@ -5,7 +5,6 @@
  */
 package pathalgorithms;
 
-import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -14,19 +13,21 @@ import java.util.PriorityQueue;
  */
 public class Dijkstra {
 
-    private ArrayList<Integer>[] graph;
+    private Graph graph;
     private int[] distances;
     private boolean[] visited;
 
     /**
      * Contains Dijkstra's algorithm as method
+     * 
+     * @param graph The graph to run the algorithm on.
      */
-    public int[] runDijkstra(ArrayList<Integer>[] graph) {
+    public int[] runDijkstra(Graph graph) {
         this.graph = graph;
-        this.visited = new boolean[graph.length];
-        this.distances = new int[graph.length];
+        this.visited = new boolean[graph.getNVertices()];
+        this.distances = new int[graph.getNVertices()];
 
-        for (int i = 0; i < graph.length; i++) {
+        for (int i = 0; i < distances.length; i++) {
             distances[i] = Integer.MAX_VALUE;
         }
         run();
@@ -38,19 +39,21 @@ public class Dijkstra {
      * Dijkstra algorithm
      */
     private void run() {
-        // vertex 0 as source
-        distances[0] = 0;
+        distances[graph.getStartVertex()] = 0;
         PriorityQueue<Vertex> heap = new PriorityQueue(new VertexComparator());
-        heap.add(new Vertex(0, 0));
+        heap.add(new Vertex(graph.getStartVertex(), 0));
 
         while (!heap.isEmpty()) {
             int vertex = heap.poll().getIndex();
+            if (vertex == graph.getEndVertex()) {
+                return;
+            }
             if (visited[vertex]) {
                 continue;
             }
 
             visited[vertex] = true;
-            for (int neighbour : this.graph[vertex]) {
+            for (int neighbour : this.graph.getArrayGraph()[vertex]) {
                 // only if not visited
                 if (!visited[neighbour]) {
                     if (distances[vertex] + 1 < distances[neighbour]) {
@@ -66,18 +69,9 @@ public class Dijkstra {
      * Prints results
      */
     public void results() {
-        String output = "Number of verteces = " + this.graph.length;
-        for (int i = 0; i < this.graph.length; i++) {
-            output += ("\nThe shortest distance from vertex 0 to vertex " + i + " is " + distances[i]);
-        }
+        String output = "Number of vertices = " + graph.getNVertices();
+        output += ("\nThe shortest distance from start vertex to target is " + distances[graph.getEndVertex()]);
         System.out.println(output);
-    }
-
-    /**
-     * Getter for tests
-     */
-    public int[] getDistances() {
-        return distances;
     }
 
     /**

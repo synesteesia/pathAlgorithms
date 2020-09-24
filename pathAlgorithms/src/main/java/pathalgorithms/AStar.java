@@ -5,7 +5,6 @@
  */
 package pathalgorithms;
 
-import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 /**
@@ -13,21 +12,20 @@ import java.util.PriorityQueue;
  */
 public class AStar {
 
-    private ArrayList<Integer>[] graph;
-    private double[] hScore;
+    private Graph graph;
     private double[] distances;
+    private boolean[] visited;
 
     /**
      * Runs A star algorithm and prints results.
      *
      * @param graph Graph represented as an adjacency list
-     * @param hScore List of estimated distances to target
      * @return A double array of distances from starting vertex.
      */
-    public double[] runAStar(ArrayList<Integer>[] graph, double[] hScore) {
+    public double[] runAStar(Graph graph) {
         this.graph = graph;
-        this.hScore = hScore;
-        this.distances = new double[hScore.length];
+        this.distances = new double[graph.getNVertices()];
+        this.visited = new boolean[graph.getNVertices()];
 
         for (int i = 0; i < distances.length; i++) {
             distances[i] = Integer.MAX_VALUE;
@@ -41,40 +39,47 @@ public class AStar {
     /**
      * A star algorithm.
      */
-    public void run() {
-        // vertex 0 as source
-        distances[0] = 0;
+    private void run() {
+        distances[graph.getStartVertex()] = 0;
         PriorityQueue<Vertex> heap = new PriorityQueue(new VertexComparator());
-        heap.add(new Vertex(0, 0));
+        heap.add(new Vertex(graph.getStartVertex(), 0));
 
         while (!heap.isEmpty()) {
             int vertex = heap.poll().getIndex();
-
-            for (int neighbour : this.graph[vertex]) {
-                    if (distances[vertex] + 1 < distances[neighbour]) {
-                        distances[neighbour] = distances[vertex] + 1;
-                        heap.add(new Vertex(neighbour, distances[neighbour] + hScore[neighbour]));
-                    }
+            if (vertex == graph.getEndVertex()) {
+                return;
             }
+            if (visited[vertex]) {
+                continue;
+            }
+
+            for (int neighbour : this.graph.getArrayGraph()[vertex]) {
+                if (distances[vertex] + 1 < distances[neighbour]) {
+                    distances[neighbour] = distances[vertex] + 1;
+                    heap.add(new Vertex(neighbour,
+                            distances[neighbour] + euclidicDistance(neighbour)));
+                }
+            }
+            visited[vertex] = true;
         }
+    }
+
+    private double euclidicDistance(int vertex) {
+        int v_y = vertex / graph.getNVertices();
+        int v_x = vertex - v_y * graph.getNVertices();
+
+        int e_y = graph.getEndVertex() / graph.getNVertices();
+        int e_x = graph.getEndVertex() - e_y * graph.getNVertices();
+
+        return Math.sqrt((e_x - v_x) * (e_x - v_x) + (e_y - v_y) * (e_y - v_y));
     }
 
     /**
      * Prints results
      */
     public void results() {
-        String output = "Number of vertices = " + this.graph.length;
-        for (int i = 0; i < this.graph.length; i++) {
-            output += ("\nThe shortest distance from vertex 0 to vertex " + i + " is " + distances[i]);
-        }
+        String output = "Number of vertices = " + graph.getNVertices();
+        output += ("\nThe shortest distance from start vertex to target is " + distances[graph.getEndVertex()]);
         System.out.println(output);
     }
-
-    /**
-     * Getter for tests
-     */
-    public double[] getDistances() {
-        return distances;
-    }
-
 }
