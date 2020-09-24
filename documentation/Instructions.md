@@ -35,6 +35,7 @@ https://www.movingai.com/benchmarks/grids.html
 
 Next the user needs to type in the starting and destination coordinates.
 ie.
+
 "Give X coordinate of start vertex
 
 147
@@ -42,6 +43,7 @@ ie.
 Give Y coordinate of start vertex
 
 75
+
 Give X coordinate of goal vertex
 
 290
