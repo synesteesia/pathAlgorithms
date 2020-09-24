@@ -15,6 +15,7 @@ Current test coverage is 65%, this includes some redundant code and will be brou
 
 ### Algorithm comparing via tests
 
-Currently algorithm comparing is done manually and will include more comparison ie. with algorithm speed. JUnit testing is still needed for comparison. AStar algorithm has some cases where the path found isn't optimal, this should be noted in tests as well.
+JUnit testing is still needed for comparison. AStar algorithm has some cases where the path found isn't optimal, this should be noted in tests as well.
+Currently algorithm comparing is done manually and will include more comparison ie. with algorithm speed. At the moment the program only prints shortest paths from start coordintates to goal given by each alorithm. Instructions for manual testing can be found in the instructions document.
 
 
