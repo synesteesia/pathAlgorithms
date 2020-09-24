@@ -14,5 +14,4 @@
 
 data structures, such as a class for heap, 
 make sure A star works right, not quite convinced yet.
-user instructions.
 
