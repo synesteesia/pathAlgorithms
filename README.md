@@ -18,6 +18,7 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 * [Weekly report #2](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_2.md)
 * [Weekly report #3](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_3.md)
 * [Weekly report #4](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_4.md)
+* [Weekly report #4](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/weeklyReports/Weekly_report_5.md)
 
 ### generating an executable jar
 

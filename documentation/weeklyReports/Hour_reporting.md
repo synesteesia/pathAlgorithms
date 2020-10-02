@@ -40,6 +40,9 @@ Date       | time | target |
 
 Date       | time | target |
 -----------|------|--------|
+2020-09-30 | 3 | PriorityQueue class|
+2020-10-01 | 3 | ArList class, implementation|
+2020-10-02 | 5 | code review, tests, documentation|
 
 
 ## Week 6
@@ -55,6 +58,6 @@ Date       | time | target |
  2      | 15      |
  3      | 10     |
  4      | 11      |
- 5      |       |
+ 5      | 11     |
  6      |      |
-**Tot** | **41** |
+**Tot** | **52** |
