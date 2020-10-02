@@ -5,8 +5,6 @@
  */
 package pathalgorithms;
 
-import java.util.PriorityQueue;
-
 /**
  *
  * @author mikko
@@ -40,7 +38,7 @@ public class Dijkstra {
      */
     private void run() {
         distances[graph.getStartVertex()] = 0;
-        PriorityQueue<Vertex> heap = new PriorityQueue(new VertexComparator());
+        MinHeap heap = new MinHeap(graph.getNVertices());
         heap.add(new Vertex(graph.getStartVertex(), 0));
 
         while (!heap.isEmpty()) {
