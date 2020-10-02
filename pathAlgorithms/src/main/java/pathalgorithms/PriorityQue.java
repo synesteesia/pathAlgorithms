@@ -28,9 +28,9 @@ public class PriorityQue {
         }
         
         if(smallest != i){
-            int vaihda = heap[i];
+            int change = heap[i];
             heap[i] = heap[smallest];
-            heap[smallest] = vaihda;
+            heap[smallest] = change;
             
             heap(size, smallest);
         }
