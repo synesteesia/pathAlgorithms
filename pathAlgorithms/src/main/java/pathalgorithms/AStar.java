@@ -51,7 +51,7 @@ public class AStar {
                 continue;
             }
 
-            for (int neighbour : this.graph.getArrayGraph()[vertex]) {
+            for (int neighbour : this.graph.getArrayGraph()[vertex].getArray()) {
                 if (distances[vertex] + 1 < distances[neighbour]) {
                     distances[neighbour] = distances[vertex] + 1;
                     heap.add(new Vertex(neighbour,

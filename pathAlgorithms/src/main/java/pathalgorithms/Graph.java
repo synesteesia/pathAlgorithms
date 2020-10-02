@@ -5,9 +5,6 @@
  */
 package pathalgorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
  * @author mikko
@@ -15,18 +12,18 @@ import java.util.Arrays;
 public class Graph {
 
     private final String[] map;
-    private final ArrayList<Integer>[] arrayGraph;
+    private final ArList[] arrayGraph;
     private int startVertex;
     private int endVertex;
 
     public Graph(String[] map, int vertices, int start, int end) {
         this.map = map;
-        arrayGraph = new ArrayList[vertices];
+        arrayGraph = new ArList[vertices];
         startVertex = start;
         endVertex = end;
     }
 
-    public Graph(ArrayList<Integer>[] adjacencyLists) {
+    public Graph(ArList[] adjacencyLists) {
         map = null;
         arrayGraph = adjacencyLists;
         startVertex = 0;
@@ -35,23 +32,23 @@ public class Graph {
 
     public void addAdjacent(int from, int to) {
         if (arrayGraph[from] == null) {
-            arrayGraph[from] = new ArrayList<>(Arrays.asList(to));
+            arrayGraph[from] = new ArList(to);
         } else {
             arrayGraph[from].add(to);
         }
 
         if (arrayGraph[to] == null) {
-            arrayGraph[to] = new ArrayList<>(Arrays.asList(from));
+            arrayGraph[to] = new ArList(from);
         } else {
             arrayGraph[to].add(from);
         }
     }
 
     public void addEmptyAdjacency(int from) {
-        arrayGraph[from] = new ArrayList<>();
+        arrayGraph[from] = new ArList();
     }
 
-    public ArrayList<Integer>[] getArrayGraph() {
+    public ArList[] getArrayGraph() {
         return arrayGraph;
     }
 

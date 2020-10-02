@@ -5,11 +5,10 @@
  */
 
 import pathalgorithms.AStar;
-import java.util.ArrayList;
-import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pathalgorithms.ArList;
 import pathalgorithms.Graph;
 
 /**
@@ -25,18 +24,18 @@ public class AStarTest {
     @Before
     public void setUp() {
         aStar = new AStar();
-        ArrayList<Integer>[] adjacencyList = new ArrayList[25];
+        ArList[] adjacencyList = new ArList[25];
         for (int i = 0; i < 25; i++) {
-            adjacencyList[i] = new ArrayList<>();
+            adjacencyList[i] = new ArList();
         }
         emptyGraph = new Graph(adjacencyList);
-        adjacencyList = new ArrayList[6];
-        adjacencyList[0] = new ArrayList<>(Arrays.asList(1, 2));
-        adjacencyList[1] = new ArrayList<>(Arrays.asList(0, 3, 4));
-        adjacencyList[2] = new ArrayList<>(Arrays.asList(0));
-        adjacencyList[3] = new ArrayList<>(Arrays.asList(1, 5));
-        adjacencyList[4] = new ArrayList<>(Arrays.asList(1));
-        adjacencyList[5] = new ArrayList<>(Arrays.asList(3));
+        adjacencyList = new ArList[6];
+        adjacencyList[0] = new ArList(1, 2);
+        adjacencyList[1] = new ArList(0, 3, 4);
+        adjacencyList[2] = new ArList(0);
+        adjacencyList[3] = new ArList(1, 5);
+        adjacencyList[4] = new ArList(1);
+        adjacencyList[5] = new ArList(3);
         smallGraph = new Graph(adjacencyList);
     }
 

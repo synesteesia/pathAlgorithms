@@ -20,7 +20,7 @@ public class MinHeap {
     }
 
     public void add(Vertex i) {
-        heap[heapSize] = i;
+        heap[heapSize++] = i;
         heap(0);
     }
 
@@ -47,6 +47,9 @@ public class MinHeap {
     }
 
     public Vertex poll() {
+        if (isEmpty()) {
+            return null;
+        }
         Vertex min = heap[0];
         heap[0] = heap[heapSize - 1];
         heapSize--;

@@ -51,7 +51,7 @@ public class Dijkstra {
             }
 
             visited[vertex] = true;
-            for (int neighbour : this.graph.getArrayGraph()[vertex]) {
+            for (int neighbour : this.graph.getArrayGraph()[vertex].getArray()) {
                 // only if not visited
                 if (!visited[neighbour]) {
                     if (distances[vertex] + 1 < distances[neighbour]) {

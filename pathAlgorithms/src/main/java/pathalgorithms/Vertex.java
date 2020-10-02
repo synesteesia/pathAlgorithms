@@ -26,4 +26,21 @@ public class Vertex {
     public double getDistance() {
         return this.distance;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o.getClass() != Vertex.class) {
+            return false;
+        }
+        Vertex v = (Vertex) o;
+        return v.distance == this.distance && v.index == this.index;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + this.index;
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.distance) ^ (Double.doubleToLongBits(this.distance) >>> 32));
+        return hash;
+    }
 }
