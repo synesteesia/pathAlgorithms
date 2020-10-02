@@ -71,4 +71,10 @@ public class Graph {
     public int getNVertices() {
         return this.arrayGraph.length;
     }
+ 
+    public void freezeAll() {
+        for (ArList arList : arrayGraph) {
+            arList.freeze();
+        }
+    }
 }
