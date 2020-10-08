@@ -17,7 +17,7 @@ public class Ui {
 
         Dijkstra dijkstra = new Dijkstra();
         AStar aStar = new AStar();
-        JPSalt jps = new JPSalt();
+        JPS jps = new JPS();
         boolean run = true;
 
         while (run) {
