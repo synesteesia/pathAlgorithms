@@ -15,19 +15,22 @@ public class Graph {
     private final ArList[] arrayGraph;
     private int startVertex;
     private int endVertex;
+    private int nCols;
 
     public Graph(String[] map, int vertices, int start, int end) {
         this.map = map;
         arrayGraph = new ArList[vertices];
         startVertex = start;
         endVertex = end;
+        nCols = map[0].length();
     }
 
-    public Graph(ArList[] adjacencyLists) {
+    public Graph(ArList[] adjacencyLists, int nCols) {
         map = null;
         arrayGraph = adjacencyLists;
         startVertex = 0;
         endVertex = adjacencyLists.length - 1;
+        this.nCols = nCols;
     }
 
     public void addAdjacent(int from, int to) {
@@ -70,6 +73,10 @@ public class Graph {
 
     public int getNVertices() {
         return this.arrayGraph.length;
+    }
+
+    public int getNColumns() {
+        return nCols;
     }
  
     public void freezeAll() {

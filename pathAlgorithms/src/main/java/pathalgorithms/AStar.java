@@ -55,19 +55,19 @@ public class AStar {
                 if (distances[vertex] + 1 < distances[neighbour]) {
                     distances[neighbour] = distances[vertex] + 1;
                     heap.add(new Vertex(neighbour,
-                            distances[neighbour] + euclidicDistance(neighbour)));
+                            distances[neighbour] + euclideanDistance(neighbour)));
                 }
             }
             visited[vertex] = true;
         }
     }
 
-    private double euclidicDistance(int vertex) {
-        int v_y = vertex / graph.getNVertices();
-        int v_x = vertex - v_y * graph.getNVertices();
+    private double euclideanDistance(int vertex) {
+        int v_y = vertex / graph.getNColumns();
+        int v_x = vertex - v_y * graph.getNColumns();
 
-        int e_y = graph.getEndVertex() / graph.getNVertices();
-        int e_x = graph.getEndVertex() - e_y * graph.getNVertices();
+        int e_y = graph.getEndVertex() / graph.getNColumns();
+        int e_x = graph.getEndVertex() - e_y * graph.getNColumns();
 
         return Math.sqrt((e_x - v_x) * (e_x - v_x) + (e_y - v_y) * (e_y - v_y));
     }

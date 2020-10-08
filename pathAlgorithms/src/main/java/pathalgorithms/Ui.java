@@ -15,7 +15,11 @@ public class Ui {
 
     public static void runNew(Scanner in) {
 
+        Dijkstra dijkstra = new Dijkstra();
+        AStar aStar = new AStar();
+        JPSalt jps = new JPSalt();
         boolean run = true;
+
         while (run) {
             String[] grid = null;
 
@@ -28,12 +32,13 @@ public class Ui {
             Graph graph = coordinates(in, grid);
 
             System.out.println("Running Dijkstra...");
-            Dijkstra dijkstra = new Dijkstra();
             dijkstra.runDijkstra(graph);
 
             System.out.println("Running AStar...");
-            AStar aStar = new AStar();
             aStar.runAStar(graph);
+
+            System.out.println("Running JPS...");
+            jps.runJPS(graph);
 
             System.out.println("would you like to run another test? y/n");
             String answer = in.nextLine();

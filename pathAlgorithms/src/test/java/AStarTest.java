@@ -28,15 +28,15 @@ public class AStarTest {
         for (int i = 0; i < 25; i++) {
             adjacencyList[i] = new ArList();
         }
-        emptyGraph = new Graph(adjacencyList);
-        adjacencyList = new ArList[6];
-        adjacencyList[0] = new ArList(1, 2);
-        adjacencyList[1] = new ArList(0, 3, 4);
-        adjacencyList[2] = new ArList(0);
-        adjacencyList[3] = new ArList(1, 5);
-        adjacencyList[4] = new ArList(1);
-        adjacencyList[5] = new ArList(3);
-        smallGraph = new Graph(adjacencyList);
+        emptyGraph = new Graph(adjacencyList, 5);
+        adjacencyList = new ArList[12];
+        adjacencyList[0] = new ArList(1);
+        adjacencyList[1] = new ArList(0, 5);
+        adjacencyList[5] = new ArList(1, 6, 9);
+        adjacencyList[6] = new ArList(5, 7);
+        adjacencyList[7] = new ArList(6);
+        adjacencyList[9] = new ArList(5);
+        smallGraph = new Graph(adjacencyList, 3);
     }
 
     @Test
@@ -55,10 +55,11 @@ public class AStarTest {
         assertEquals(smallGraph.getNVertices(), distances.length);
         assertTrue(distances[0] == 0);
         assertTrue(distances[1] == 1);
-        assertTrue(distances[2] == 1);
-        assertTrue(distances[3] == 2);
-        assertTrue(distances[4] == 2);
-        assertTrue(distances[5] == 3);
+        assertTrue(distances[2] == Integer.MAX_VALUE);
+        assertTrue(distances[5] == 2);
+        assertTrue(distances[6] == 3);
+        assertTrue(distances[7] == 4);
+        assertTrue(distances[9] == 3);
     }
 
 }

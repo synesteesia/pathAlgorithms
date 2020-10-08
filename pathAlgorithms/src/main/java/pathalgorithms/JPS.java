@@ -18,4 +18,12 @@ public class JPS {
     public JPS(ArrayList<Integer>[] graph) {
         this.graph = graph;
     }
+    
+    public void successors(){
+        
+    }
+    
+    public void jump(){
+        
+    }
 }
