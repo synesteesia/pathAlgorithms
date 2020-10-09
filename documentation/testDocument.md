@@ -11,7 +11,7 @@ Current test classes:
 
 ### Test coverage
 
-Current test coverage is 65%, this includes some redundant code and will be brought up soon.
+Current test coverage is 84%, this includes some redundant code tho.
 
 ### Algorithm comparing via tests
 
