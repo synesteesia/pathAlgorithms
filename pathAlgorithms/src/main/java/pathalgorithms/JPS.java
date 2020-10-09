@@ -37,7 +37,7 @@ public class JPS {
     }
 
     /**
-     * A star algorithm.
+     * Jump point search algorithm.
      */
     private void run() {
         distances[graph.getStartVertex()] = 0;
@@ -54,7 +54,9 @@ public class JPS {
             }
 
             for (Integer neighbour : getNeighbours(vertex)) {
-                if (neighbour == null) continue;
+                if (neighbour == null) {
+                    continue;
+                }
                 int dist = manhattanDistance(neighbour, vertex);
                 if (distances[vertex] + dist < distances[neighbour]) {
                     distances[neighbour] = distances[vertex] + dist;
@@ -66,6 +68,9 @@ public class JPS {
         }
     }
 
+    /**
+     * Calculate euclidean distance of given vertices
+     */
     private double euclideanDistance(int vertexOne, int vertexTwo) {
         int v_y = vertexOne / graph.getNColumns();
         int v_x = vertexOne - v_y * graph.getNColumns();
@@ -76,6 +81,9 @@ public class JPS {
         return Math.sqrt((e_x - v_x) * (e_x - v_x) + (e_y - v_y) * (e_y - v_y));
     }
 
+    /**
+     * Calculate manhattan distance of given vertices
+     */
     private int manhattanDistance(int vertexOne, int vertexTwo) {
         int v_y = vertexOne / graph.getNColumns();
         int v_x = vertexOne - v_y * graph.getNColumns();
@@ -88,7 +96,7 @@ public class JPS {
 
     private Integer straightJump(int vertex, int diffToNext, int diffToForced) {
         int helper = vertex + diffToNext;
-        while (isValidVertex(helper) && adjacencyLists[helper].size() != 0) {
+        while (isValidVertex(helper) && hasSameRow(vertex, diffToNext) && adjacencyLists[helper].size() != 0) {
 
             if (helper == graph.getEndVertex()
                     || (isValidVertex(helper - diffToForced) && adjacencyLists[helper - diffToForced].size() == 0)
@@ -99,6 +107,10 @@ public class JPS {
             helper += diffToNext;
         }
         return null;
+    }
+
+    private boolean hasSameRow(int vertex, int diffToNext) {
+        return Math.abs(diffToNext) != 1 || Math.abs(vertex % graph.getNColumns() - (vertex + diffToNext) % graph.getNColumns()) == 1;
     }
 
     private Integer diagonalJump(int vertex, int vDiff, int hDiff) {
@@ -131,10 +143,8 @@ public class JPS {
         }
         return neighbours;
     }
-    // TODO: Check diagonal move is allowed (i.e. it would be possible to perform without the diagonal step
-    // TODO: Check the step in vertical direction is fine (no wrapping of the map)
+    // TODO: Check diagonal move is allowed (i.e. it would be possible to perform without the diagonal step and no wrapping of the map horizontally)
     // TODO: JavaDoc
-    // TODO: Tests
 
     /**
      * Prints results

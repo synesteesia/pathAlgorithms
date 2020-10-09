@@ -36,7 +36,7 @@ public class DijkstraTest {
         adjacencyList[6] = new ArList(5, 7);
         adjacencyList[7] = new ArList(6);
         adjacencyList[9] = new ArList(5);
-        smallGraph = new Graph(adjacencyList, 3);
+        smallGraph = new Graph(adjacencyList, 4);
         smallGraph.setEndVertex(9);
     }
 
