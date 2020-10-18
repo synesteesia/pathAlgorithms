@@ -22,21 +22,28 @@ java -jar pathAlgorithms.jar
 
 ### Input
 
+This program reads.map files to print data on different path algorithms.
+Accepted map files can be found on movinai site:
+https://www.movingai.com/benchmarks/grids.html
+It is possible to give the program a single map or a set of maps as input.
+
 ### Text interface
+
+The progran works with a text interface, asking user questions.
+The first questin is:
+
+"Would you like to process single map or a set of maps?"
+Answer by typing "single" or "set" and hitting enter.
 
 ### Running tests on a single map
 
 ### Running tests on a set of maps
 
-The project works with a text interface, asking user a few questions at first.
-
 The first question is where the program can find a map file:
 
 "Write the absoulte path to the .map file on the next line:""
 
-Accepted map files can be found on movinai site:
 
-https://www.movingai.com/benchmarks/grids.html
 
 Next the user needs to type in the starting and destination coordinates.
 ie.
