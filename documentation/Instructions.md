@@ -20,8 +20,13 @@ command
 java -jar pathAlgorithms.jar
 ```
 
+### Input
 
 ### Text interface
+
+### Running tests on a single map
+
+### Running tests on a set of maps
 
 The project works with a text interface, asking user a few questions at first.
 
