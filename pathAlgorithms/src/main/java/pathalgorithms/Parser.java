@@ -76,14 +76,20 @@ public class Parser {
      */
     public static Graph parseGrid(String[] grid, int startX, int startY, int endX, int endY) {
         int cols = grid[0].length();
+        boolean setStartEnd = startX < 0;
         Graph graph = new Graph(grid, grid.length * cols, startX + startY * cols, endX + endY * cols);
 
         int current;
+        boolean found = false;
 
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < cols; j++) {
                 current = j + i * cols;
                 if (".".equals(String.valueOf(grid[i].charAt(j)))) {
+                    if (setStartEnd && !found) {
+                        graph.setStartVertex(current);
+                        found = true;
+                    }
                     if (j < cols - 1 && ".".equals(String.valueOf(grid[i].charAt(j + 1)))) {
                         graph.addAdjacent(j + 1 + i * cols, current);
                     }
@@ -96,6 +102,8 @@ public class Parser {
                 }
             }
         }
+
+        found = false;
 
         return graph;
     }

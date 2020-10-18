@@ -6,6 +6,8 @@
 package pathalgorithms;
 
 import java.util.Scanner;
+import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,24 +23,36 @@ public class Ui {
         boolean run = true;
 
         while (run) {
-            String[] grid = null;
 
-            while (grid == null) {
+            ArrayList<String> mapFiles = new ArrayList<>();
+            System.out.println("Would you like to process single map or a set of maps? single/set");
+            String firstAnswer = in.nextLine();
+            if (firstAnswer.equals("set")) {
+                System.out.println("Write the absoulte path to the folder containing maps on the next line:");
+                String folderName = in.nextLine();
+                mapFiles = mapFiles(folderName);
+
+            } else if (firstAnswer.equals("single")) {
                 System.out.println("Write the absoulte path to the map file on the next line:");
-                String fileName = in.nextLine();
-                grid = Parser.readFile(fileName);
+                mapFiles.add(in.nextLine());
             }
 
-            Graph graph = coordinates(in, grid);
+            for (String fileName : mapFiles) {
+                String[] grid = Parser.readFile(fileName);
+                if (grid == null) {
+                    continue;
+                }
+                Graph graph = parseGraph(in, mapFiles.size() == 1, grid);
 
-            System.out.println("Running Dijkstra...");
-            dijkstra.runDijkstra(graph);
+                System.out.println("Running Dijkstra...");
+                dijkstra.runDijkstra(graph);
 
-            System.out.println("Running AStar...");
-            aStar.runAStar(graph);
+                System.out.println("Running AStar...");
+                aStar.runAStar(graph);
 
-            System.out.println("Running JPS...");
-            jps.runJPS(graph);
+                System.out.println("Running JPS...");
+                jps.runJPS(graph);
+            }
 
             System.out.println("would you like to run another test? y/n");
             String answer = in.nextLine();
@@ -47,13 +61,17 @@ public class Ui {
 
     }
 
-    private static Graph coordinates(Scanner in, String[] grid) {
-        int startX = promptCoordinate(in, "Give X coordinate of start vertex", grid[0].length());
-        int startY = promptCoordinate(in, "Give Y coordinate of start vertex", grid.length);
-        int goalX = promptCoordinate(in, "Give X coordinate of goal vertex", grid[0].length());
-        int goalY = promptCoordinate(in, "Give Y coordinate of goal vertex", grid.length);
+    private static Graph parseGraph(Scanner in, boolean prompt, String[] grid) {
+        if (prompt) {
+            int startX = promptCoordinate(in, "Give X coordinate of start vertex", grid[0].length());
+            int startY = promptCoordinate(in, "Give Y coordinate of start vertex", grid.length);
+            int goalX = promptCoordinate(in, "Give X coordinate of goal vertex", grid[0].length());
+            int goalY = promptCoordinate(in, "Give Y coordinate of goal vertex", grid.length);
 
-        return Parser.parseGrid(grid, startX, startY, goalX, goalY);
+            return Parser.parseGrid(grid, startX, startY, goalX, goalY);
+        }
+
+        return Parser.parseGrid(grid, -1, 0, 0, 0);
     }
 
     private static int promptCoordinate(Scanner in, String prompt, int maxValue) {
@@ -72,4 +90,18 @@ public class Ui {
 
         return coord;
     }
+
+    private static ArrayList mapFiles(String folderName) {
+        File folder = new File(folderName);
+        ArrayList<String> mapFiles = new ArrayList<>();
+
+        for (File file : folder.listFiles()) {
+            if (file.getName().endsWith(".map")) {
+                mapFiles.add(file.getAbsolutePath());
+            }
+
+        }
+        return mapFiles;
+    }
+
 }

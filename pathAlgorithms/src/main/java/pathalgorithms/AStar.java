@@ -13,6 +13,8 @@ public class AStar {
     private Graph graph;
     private double[] distances;
     private boolean[] visited;
+    private PerformanceStats preprocessing;
+    private PerformanceStats runTime;
 
     /**
      * Runs A star algorithm and prints results.
@@ -21,6 +23,36 @@ public class AStar {
      * @return A double array of distances from starting vertex.
      */
     public double[] runAStar(Graph graph) {
+
+        preprocessing = new PerformanceStats(1000);
+        runTime = new PerformanceStats(1000);
+        long start, stop;
+
+        for (int i = 0; i < 1000; i++) {
+            start = System.nanoTime();
+            runPreprocessing(graph);
+            stop = System.nanoTime();
+            preprocessing.setValue(i, stop - start);
+        }
+
+        preprocessing.computeStats();
+
+        for (int i = 0; i < 1000; i++) {
+            start = System.nanoTime();
+            run();
+            stop = System.nanoTime();
+            runTime.setValue(i, stop - start);
+        }
+
+        runTime.computeStats();
+
+        results();
+
+        return distances;
+    }
+
+    private void runPreprocessing(Graph graph) {
+
         this.graph = graph;
         this.distances = new double[graph.getNVertices()];
         this.visited = new boolean[graph.getNVertices()];
@@ -29,9 +61,6 @@ public class AStar {
             distances[i] = Integer.MAX_VALUE;
         }
 
-        run();
-        results();
-        return distances;
     }
 
     /**
@@ -78,6 +107,9 @@ public class AStar {
     public void results() {
         String output = "Number of vertices = " + graph.getNVertices();
         output += ("\nThe shortest distance from start vertex to target is " + distances[graph.getEndVertex()]);
+        output += "\nStatistics for initialising data structures:\n" + preprocessing.toString();
+        output += "\nStatistics for running the algorithm:\n" + runTime.toString();
+
         System.out.println(output);
     }
 }
