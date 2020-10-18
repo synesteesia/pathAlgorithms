@@ -134,5 +134,8 @@ It is intresting to note tho that the static structure is faster and with a lowe
 
 
 
-
+Mitä on testattu, miten tämä tehtiin
+Minkälaisilla syötteillä testaus tehtiin (vertailupainotteisissa töissä tärkeää)
+Miten testit voidaan toistaa
+Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
 
