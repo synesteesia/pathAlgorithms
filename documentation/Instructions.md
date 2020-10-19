@@ -30,7 +30,7 @@ It is possible to give the program a single map or a set of maps as input.
 ### Text interface
 
 The program works with a text interface, asking user questions.
-The first questin is:
+The first question is:
 
 "Would you like to process single map or a set of maps?"
 Answer by typing "single" or "set" and hitting enter.
