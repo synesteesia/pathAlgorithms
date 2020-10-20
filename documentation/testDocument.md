@@ -86,10 +86,16 @@ The maps used can be found on the site: https://movingai.com/benchmarks/grids.ht
 Each different game is considered one set.
 
 set1: Dragon Age: Origins
+
 set2: Dragon Age 2
+
 set3: Warcrft 3
+
 set4: Baldurs Gate 2
+
 set5: Starcraft
+
+Each set contains approximately 
 
 ```
 Dijkstra data structure init results:
@@ -116,8 +122,6 @@ JPS data structure init results:
   all sets : 0.319337ms
 ```
 
-The results for preprocessing times are not unexpected. The segment tree used in the dynamic implementation is built using a very efficient linear algorithm where almost all the data fits into the CPU caches for all but the largest array, while the preprocessing for the static RMQ runs in <sub><img src="https://latex.codecogs.com/svg.latex?\mathcal{O}(n&space;\log&space;n)" title="O(n log n)" /></sub> time and runs out of CPU cache space sooner.
-
 ```
 Dijkstra run results:
       1 set: 0.014798ms
@@ -142,19 +146,4 @@ JPS run results:
    4 sets  : 0.037604ms
   all sets : 0.319337ms
 ```
-
-For the lookup time the results are perhaps more intresting but significantly more noisy. 
-
-Clearly the dynamic structure is faster for small array sizes. This is likely due to the very good cache performance and low constant factors of the structure. 
-
-The static structure seems to stay fairly consistent at somewhere around 100ns per query. This can likely be expalined by the very high constant factors of calculating base 2 logarithms in java and poor cache performanse. 
-
-It is intresting to note tho that the static structure is faster and with a lower standard deviation for arrays of sizes 1000000 and 10000000. The expectation would be that this difference would be more pronounced as array sizes grow further.
-
-
-
-Mitä on testattu, miten tämä tehtiin
-Minkälaisilla syötteillä testaus tehtiin (vertailupainotteisissa töissä tärkeää)
-Miten testit voidaan toistaa
-Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
 
