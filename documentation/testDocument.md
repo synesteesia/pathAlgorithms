@@ -81,10 +81,9 @@ To test run times, the pathfinding algorithm is runs 1000 times and timestamps a
 
 ### Example results
 
-Tests were run on an `Intel(R) Core(TM) i5-3437U` cpu with 8GB of RAM. The computer was fairly old and under fairly heavy load during testing. As such the results here are likely more noisy than if run on a system with more resources.
-
+Tests were run on a computer with `Intel® Core™ i7-6500U` cpu and 8GB of RAM. The computer was by no means ideal for performance testing.
 ```
-Dynamic RMQ preprocessng times:
+Dijkstra data structure init results:
       10: 0.014798ms
      100: 0.010918ms
     1000: 0.018245ms
@@ -92,37 +91,63 @@ Dynamic RMQ preprocessng times:
   100000: 0.319337ms
  1000000: 3.934933ms
 10000000: 62.961225ms
+```
 
-Static RMQ preprocessing times:
-      10: 0.022808ms
-     100: 0.02369ms
-    1000: 0.298455ms
-   10000: 4.356129ms
-  100000: 52.450047ms
- 1000000: 647.011838ms
-10000000: 7818.361586ms
+```
+A star data structure init results:
+      10: 0.014798ms
+     100: 0.010918ms
+    1000: 0.018245ms
+   10000: 0.037604ms
+  100000: 0.319337ms
+ 1000000: 3.934933ms
+10000000: 62.961225ms
+```
+
+```
+JPS data structure init results:
+      10: 0.014798ms
+     100: 0.010918ms
+    1000: 0.018245ms
+   10000: 0.037604ms
+  100000: 0.319337ms
+ 1000000: 3.934933ms
+10000000: 62.961225ms
 ```
 
 The results for preprocessing times are not unexpected. The segment tree used in the dynamic implementation is built using a very efficient linear algorithm where almost all the data fits into the CPU caches for all but the largest array, while the preprocessing for the static RMQ runs in <sub><img src="https://latex.codecogs.com/svg.latex?\mathcal{O}(n&space;\log&space;n)" title="O(n log n)" /></sub> time and runs out of CPU cache space sooner.
 
 ```
-Dynamic RMQ lookup times:
-      10: 46.5028ns, std: 28.960608830727722ns
-     100: 52.1385ns, std: 14.596678528087555ns
-    1000: 57.8515ns, std: 18.018393768629977ns
-   10000: 77.0664ns, std: 47.23534173466832ns
-  100000: 87.4741ns, std: 21.990904692142944ns
- 1000000: 113.0819ns, std: 36.47509061830483ns
-10000000: 124.5604ns, std: 31.629694838862616ns
+Dijkstra run results:
+      10: 0.014798ms
+     100: 0.010918ms
+    1000: 0.018245ms
+   10000: 0.037604ms
+  100000: 0.319337ms
+ 1000000: 3.934933ms
+10000000: 62.961225ms
+```
 
-Static RMQ lookup times:
-      10: 93.1286ns, std: 25.14617456094359ns
-     100: 113.1642ns, std: 22.816167428158053ns
-    1000: 99.168ns, std: 13.6808074487305ns
-   10000: 107.9099ns, std: 36.98128639655819ns
-  100000: 99.3353ns, std: 14.551111551862904ns
- 1000000: 101.7498ns, std: 15.629012334842363ns
-10000000: 107.4176ns, std: 23.026359494352093ns
+```
+A star run results:
+      10: 0.014798ms
+     100: 0.010918ms
+    1000: 0.018245ms
+   10000: 0.037604ms
+  100000: 0.319337ms
+ 1000000: 3.934933ms
+10000000: 62.961225ms
+```
+
+```
+JPS run results:
+      10: 0.014798ms
+     100: 0.010918ms
+    1000: 0.018245ms
+   10000: 0.037604ms
+  100000: 0.319337ms
+ 1000000: 3.934933ms
+10000000: 62.961225ms
 ```
 
 For the lookup time the results are perhaps more intresting but significantly more noisy. 
