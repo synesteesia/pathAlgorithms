@@ -41,7 +41,7 @@ unless it is stopped when finding a specified vertex (like in this program).
 The algorithm can be found in the following class in the method run():
 [Dijkstra](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders/Dijkstra.java).
 
-The algorithm uses the data structure heap, and maintaining is the most computationally complex part of the algorithm.
+The algorithm uses the data structure heap, and maintaining it is the most computationally complex part of the algorithm.
 
 A star and JPS are heavily based on Dijkstra's algorithm.
 
