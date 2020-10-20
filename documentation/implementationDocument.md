@@ -5,11 +5,14 @@
 
 The project finds the shortest path between two points on a graph using different pathfinding algorithms. The program requires a map and start and end points for the input. The program then outputs the shortest path length and route with the duration of the specific algorithm.
 
-## Package discription
+## Package description
 
 [pathFinders](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders)
+
 [dataStructures](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/dataStructures)
+
 [IO](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/IO)
+
 
 ## Implemented algorithms
 
