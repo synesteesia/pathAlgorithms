@@ -31,7 +31,7 @@ Current test coverage is 85%, this includes some redundant code like the UI tho.
 ## Performance testing
 
 Since java is a JIT compiled language the performance of each algorithm is measured 1000 times per map, and the first result is discarded.
-Average and median performance times are calculated from remaining results. 
+Average, median, min and max performance times are calculated from remaining results. 
 Additionally the operating systems task scheduling and os overhead might impact the results.
 
 To see how the algorithms scale with input size, performance testing is done with increasing number of maps as input.
@@ -42,20 +42,15 @@ First, the class compiles the datastructures the algorithm needs to function and
 Time is measured for both parts, data structure initialization and run time.
 `System.nanotime` is used for timing. 
 Taking a timestamp as close to the code-to-time as possible and comparing the timestamp after the intresting code has run.
+
 As mentioned before, both parts of the algorithm are ran 1000 times per input map.
-
-
-
-### Performance testing path algorithms
-
-Performance tests for the two RMQ structures are written in `Tester.java`.
-
-In testing two different values are of intrest for data structure comparison. The preprocessing time taken when building the different data structures and the time taken when querying the data structures. Additionally it may be intresting to get timing for updating the dynamic structures but this is skipped since we have no point of comparison.
+On each iteration the timestamp is stored and after the loop the class 
+[PerformanceStats](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/PerformanceStats.java) calculates the average, median, min and max time.
 
 
 ### Data structure initialization time
 
-For testing the preprocessing time, both of the structures are built 100 times for each of the input array sizes, and the median is stored. Here the median is used instead of the mean to avoid the extreme outlier of JIT compilation and to minimize the impact of garbage collection.
+For testing the data structure initialization time, the data structures are built 1000 times for each of the maps, and the timestamps are stored. Afterwards the result times are calculated. runPreprocessing(graph); contains the method for data structure initialization.
 
 ```java
         for (int i = 0; i < 1000; i++) {
@@ -68,11 +63,9 @@ For testing the preprocessing time, both of the structures are built 100 times f
         preprocessing.computeStats();
 ```
 
-`System.nanotime` is used for timing. Taking a timestamp as close to the code-to-time as possible and comparing the timestamp after the intresting code has run.
-
 ### Run time
 
-To test query times, 10000 queries are generated for each of the structures. Each of these queries are run 100 times and the mean is taken for each query time. After the queries have run, the mean and standard deviation of each of the queries are reported.
+To test run times, the pathfinding algorithm is runs 1000 times and timestamps are stored. Afterwards the result times are calculated. run(); method contains the pathfinding algorithm.
 
 ```java
         for (int i = 0; i < 1000; i++) {
@@ -84,10 +77,6 @@ To test query times, 10000 queries are generated for each of the structures. Eac
 
         runTime.computeStats();
 ```
-
-The multiple level repetition may seem slightly excessive but reducing the number of iteration on the inner loop tends to make results fairly noisy. The inner level averaging is simply there to reduce impact of garbage collection and operating system overhead. If running on a computer with more capacity to spare, fewer iterations may be required.
-
-The timing itself was done exactly the same as for the preprocessing times. Times as close to before and after executing the `query(l, r)` are compared for a "real world" execution time.
 
 
 ### Example results
