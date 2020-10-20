@@ -26,6 +26,8 @@ This program reads.map files to print data on different path algorithms.
 Accepted map files can be found on movinai site:
 https://www.movingai.com/benchmarks/grids.html
 It is possible to give the program a single map or a set of maps as input.
+Maps can be donloaded by clicking "browse data" on the site. 
+Maps used in this project were Warcraft 3 maps.
 
 ### Text interface
 
