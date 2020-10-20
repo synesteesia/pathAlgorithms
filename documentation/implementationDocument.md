@@ -1,9 +1,15 @@
 # Implementation
 
 
-## Project discription
+## Program discription
 
-The project finds the shortest path between two points on a graph using different pathfinding algorithms. The program requires a map and start and end points for the input. The program then outputs the shortest path length and route with the duration of the specific algorithm.
+This program is used to compare three path finding algorithms - Dijkstra, A star and JPS. 
+The program takes movinai map files and user text as input.
+Map files can be found on following site:
+https://www.movingai.com/benchmarks/grids.html 
+
+The program prints various results comparing the algorithms as output.
+
 
 ## Package description
 
