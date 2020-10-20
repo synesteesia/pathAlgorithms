@@ -1,5 +1,13 @@
 # pathAlgorithms
-Comparing pathfinding algorithms in java. Project for [datastructure and algorithm](https://tiralabra.github.io/2020_p1/index) course at the University of Helsinki.
+
+Project for [datastructure and algorithm](https://tiralabra.github.io/2020_p1/index) course at the University of Helsinki.
+
+This program is used to compare three path finding algorithms - Dijkstra, A star and JPS. 
+The program takes movinai map files and user text as input.
+Map files can be found on following site:
+https://www.movingai.com/benchmarks/grids.html 
+
+The program prints various results comparing the algorithms as output.
 
 
 
