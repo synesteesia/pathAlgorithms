@@ -1,7 +1,7 @@
 # Implementation
 
 
-## Program discription
+## Program description
 
 This program is used to compare three path finding algorithms - Dijkstra, A star and JPS. 
 The program takes movinai map files and user text as input.
@@ -13,16 +13,22 @@ The program prints various results comparing the algorithms as output.
 
 ## Package description
 
+The program is divided into three packages.
+
 [pathFinders](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders)
+
+Contains the code for Dijkstras, A star and JPS algorithm.
 
 [dataStructures](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/dataStructures)
 
+Contains simple implementations of ArrayList, MinHeap, Graph and Vertex.
+
 [IO](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/IO)
+
+Contains the user text interface, parser for map files and a class to calculate some of the results.
 
 
 ## Implemented algorithms
-
-The Pathfinding algorithms Implemeted are Dijkstra's algorithm, A Star search algorithm and Jump point first algorithm.
 
 ### Dijkstra's algorithm
 
