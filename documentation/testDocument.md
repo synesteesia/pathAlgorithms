@@ -1,12 +1,13 @@
 # Testdocument
 
 The program has been tested using JUnit tests and manual testing. 
+Perfomance testing is part of the core functionality of this program.
 
 ### Test classes
 
-Current test classes:
+All test classes can be found from the test folder:
 
-[AStarTest](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/test/java/AStarTest.java), [DijkstraTest](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/test/java/DijkstraTest.java) and [ParserTest](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/test/java/ParserTest.java).
+[Test classes folder](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/test/java).
 
 
 ### Test coverage
