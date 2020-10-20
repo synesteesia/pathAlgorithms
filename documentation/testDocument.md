@@ -122,6 +122,9 @@ JPS data structure init results:
   all sets : 0.319337ms
 ```
 
+
+visual graph here
+
 ```
 Dijkstra run results:
       1 set: 0.014798ms
@@ -147,3 +150,4 @@ JPS run results:
   all sets : 0.319337ms
 ```
 
+visual graph here
