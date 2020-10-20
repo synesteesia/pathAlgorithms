@@ -36,7 +36,7 @@ Each algorithm prints their results through the UI class.
 
 Dijkstra's algorithm is perhaps the most known path finding algorithm. 
 It finds the shortest path between all vertices in a weighted graph, 
-unless it is stopped when finding a specified vertice (like in this program).
+unless it is stopped when finding a specified vertex (like in this program).
 
 The algorithm can be found in the following class in the method run():
 [Dijkstra](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders/Dijkstra.java).
