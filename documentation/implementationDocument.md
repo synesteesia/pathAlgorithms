@@ -7,7 +7,7 @@ This program is used to compare three path finding algorithms - Dijkstra, A star
 The program takes movinai map files and user text as input. The program prints various results comparing the algorithms as output.
 
 
-## Package description
+## Package and class description
 
 The program is divided into three packages.
 
@@ -21,7 +21,13 @@ Contains simple implementations of ArrayList, MinHeap, Graph and Vertex.
 
 [IO](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/IO)
 
-Contains the user text interface, parser for map files and a class to calculate some of the results.
+Contains the user text interface, parser for map files and PerformanceStats class to calculate some of the results.
+
+The UI class is the class taking all the direct input and sending it to other classes.
+The parser class is used to process .map files into a grid data structures, 
+so they can be ran through the pathfinding algorithms.
+While running the pathfinding algorithms, some data is stored and then used by PerformanceStats class to calculate some of the results.
+Each algorithm prints their results through the UI class.
 
 
 ## Implemented algorithms
@@ -51,12 +57,11 @@ JPS is a natural choice for shortest pathfinding in an uniform-cost grid because
 
 ## Inputs
 
-The program takes one or multiple maps and user text as input.
+The program takes one or multiple maps and user text as input. If the user wants to run the algorithms for a single map, start and goal coordinates are typed in by the user. Otherwise the program selects movable verices in the upper left corner as start and right down corner as goal.
 
 ## Map files
 
-The program reads .map files that can be found on site 
-Map files can be found on following site:
+The program reads .map files that can be found on site:
 https://www.movingai.com/benchmarks/grids.html 
 
 The program prints various results comparing the algorithms as output. 
@@ -73,6 +78,10 @@ In the maps a dot represents acceptable directions for movement, other letters a
 |JPS| O\(\|E\|\) | O\(\|V\|\) |
 
 
+## Output
+
+The program prints questions to the user and results about different algorithms.
+More about results algorithm performance tests can be found on the test document.
 
 ## User interface
 
