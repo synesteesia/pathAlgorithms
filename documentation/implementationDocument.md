@@ -5,6 +5,10 @@
 
 The project finds the shortest path between two points on a graph using different pathfinding algorithms. The program requires a map and start and end points for the input. The program then outputs the shortest path length and route with the duration of the specific algorithm.
 
+## Package discription
+
+
+
 ## Implemented algorithms
 
 The Pathfinding algorithms Implemeted are Dijkstra's algorithm, A Star search algorithm and Jump point first algorithm.
@@ -42,6 +46,13 @@ A basic Tuple and Node are implemeted for ease of use.
 
 The program inputs are a map and starting and ending points. The progam already has built in maps which the user can freely choose between. The starting and ending points are given to the shortest path algorithms as parameters and the algoirthms return the shortest path and distance of the path.
 
+## Map files
+
+The program reads .map files that can be found on site 
+https://www.movingai.com/benchmarks/wc3maps512/index.html
+
+ In the maps a dot represents acceptable directions for movement, other letters are walls. 
+
 ## Expected time and space complexities of the program
 
 |E| is the number of edges and |V| is the number of vertices.
@@ -53,39 +64,12 @@ The program inputs are a map and starting and ending points. The progam already 
 |JPS| O\(\|E\|\) | O\(\|V\|\) |
 
 
+
+## User interface
+
+The project uses a simple text interface and can be found in its own Ui class.
+More details about the text interface can be found on the instructions document.
+
+
 ## Sources
-
-## Structure
-
-
-## Class graph
-
-
-## Interface
-
-The project uses a simple tet interface and can be found in its own Ui class.
-
-## Program logic
-
-
-
-### Map files
-
-The program reads .map files that can be found on site 
-https://www.movingai.com/benchmarks/wc3maps512/index.html
-
- In the maps a dot represents acceptable directions for movement, other letters are walls. 
-
-
-### Main functionality
-
-### Analysis
-
-
-
-    Ohjelman yleisrakenne
-    Saavutetut aika- ja tilavaativuudet (m.m. O-analyysit pseudokoodista)
-    Suorituskyky- ja O-analyysivertailu (mikäli työ vertailupainotteinen)
-    Työn mahdolliset puutteet ja parannusehdotukset
-    Lähteet
 
