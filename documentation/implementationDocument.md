@@ -4,11 +4,7 @@
 ## Program description
 
 This program is used to compare three path finding algorithms - Dijkstra, A star and JPS. 
-The program takes movinai map files and user text as input.
-Map files can be found on following site:
-https://www.movingai.com/benchmarks/grids.html 
-
-The program prints various results comparing the algorithms as output.
+The program takes movinai map files and user text as input. The program prints various results comparing the algorithms as output.
 
 
 ## Package description
@@ -53,22 +49,18 @@ Jump point search algorithm (JPS) is an algorithm for finding the shortest path 
 JPS is a natural choice for shortest pathfinding in an uniform-cost grid because it can greatly improve the efficency over A Star algorithm.
 
 
-## Implemented datastructures
-
-The implemented algorithms for this project require a priority queue and a basic list datastructure.
-
-A basic Tuple and Node are implemeted for ease of use.
-
 ## Inputs
 
-The program inputs are a map and starting and ending points. The progam already has built in maps which the user can freely choose between. The starting and ending points are given to the shortest path algorithms as parameters and the algoirthms return the shortest path and distance of the path.
+The program takes one or multiple maps and user text as input.
 
 ## Map files
 
 The program reads .map files that can be found on site 
-https://www.movingai.com/benchmarks/wc3maps512/index.html
+Map files can be found on following site:
+https://www.movingai.com/benchmarks/grids.html 
 
- In the maps a dot represents acceptable directions for movement, other letters are walls. 
+The program prints various results comparing the algorithms as output. 
+In the maps a dot represents acceptable directions for movement, other letters are walls.
 
 ## Expected time and space complexities of the program
 
