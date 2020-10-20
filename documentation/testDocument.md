@@ -82,72 +82,65 @@ To test run times, the pathfinding algorithm is runs 1000 times and timestamps a
 ### Example results
 
 Tests were run on a computer with `Intel® Core™ i7-6500U` cpu and 8GB of RAM. The computer was by no means ideal for performance testing.
+The maps used can be found on the site: https://movingai.com/benchmarks/grids.html by clicking link "donwload all maps". 
+Each different game is considered one set.
+
+set1: Dragon Age: Origins
+set2: Dragon Age 2
+set3: Warcrft 3
+set4: Baldurs Gate 2
+set5: Starcraft
+
 ```
 Dijkstra data structure init results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
-
 ```
-A star data structure init results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+Astar data structure init results:
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
-
 ```
 JPS data structure init results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
 
 The results for preprocessing times are not unexpected. The segment tree used in the dynamic implementation is built using a very efficient linear algorithm where almost all the data fits into the CPU caches for all but the largest array, while the preprocessing for the static RMQ runs in <sub><img src="https://latex.codecogs.com/svg.latex?\mathcal{O}(n&space;\log&space;n)" title="O(n log n)" /></sub> time and runs out of CPU cache space sooner.
 
 ```
 Dijkstra run results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
-
 ```
 A star run results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
-
 ```
 JPS run results:
-      10: 0.014798ms
-     100: 0.010918ms
-    1000: 0.018245ms
-   10000: 0.037604ms
-  100000: 0.319337ms
- 1000000: 3.934933ms
-10000000: 62.961225ms
+      1 set: 0.014798ms
+     2 sets: 0.010918ms
+    3 sets : 0.018245ms
+   4 sets  : 0.037604ms
+  all sets : 0.319337ms
 ```
 
 For the lookup time the results are perhaps more intresting but significantly more noisy. 
