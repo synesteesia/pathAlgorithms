@@ -58,15 +58,18 @@ In testing two different values are of intrest for data structure comparison. Th
 For testing the preprocessing time, both of the structures are built 100 times for each of the input array sizes, and the median is stored. Here the median is used instead of the mean to avoid the extreme outlier of JIT compilation and to minimize the impact of garbage collection.
 
 ```java
-    DynamicRMQ dRMQ = new DynamicRMQ(arr);
-    for (int i = 0; i < n; i++) {
-        t = System.nanoTime();
-        dRMQ = new DynamicRMQ(arr);
-        t = System.nanoTime() - t;
-        times[i] = t;
-    }
-    Arrays.sort(times);
-    dynamicInits[run] = times[times.length / 2] / 1000000.0;
+        preprocessing = new PerformanceStats(1000);
+        runTime = new PerformanceStats(1000);
+        long start, stop;
+
+        for (int i = 0; i < 1000; i++) {
+            start = System.nanoTime();
+            runPreprocessing(graph);
+            stop = System.nanoTime();
+            preprocessing.setValue(i, stop - start);
+        }
+
+        preprocessing.computeStats();
 ```
 
 `System.nanotime` is used for timing. Taking a timestamp as close to the code-to-time as possible and comparing the timestamp after the intresting code has run.
@@ -76,20 +79,14 @@ For testing the preprocessing time, both of the structures are built 100 times f
 To test query times, 10000 queries are generated for each of the structures. Each of these queries are run 100 times and the mean is taken for each query time. After the queries have run, the mean and standard deviation of each of the queries are reported.
 
 ```java
-    times = new long[lArr.length];
-    for (int i = 0; i < lArr.length; i++) {
-        long tAcc = 0;
-        int l = lArr[i];
-        int r = rArr[i];
-        for (int j = 0; j < n; j++) {
-            t = System.nanoTime();
-            sRMQ.query(l, r);
-            tAcc += System.nanoTime() - t;
+        for (int i = 0; i < 1000; i++) {
+            start = System.nanoTime();
+            run();
+            stop = System.nanoTime();
+            runTime.setValue(i, stop - start);
         }
-        times[i] = tAcc / n;
-    }
-    staticQueries[run] = getAverage(times);
-    staticStd[run] = getStd(times, staticQueries[run]);
+
+        runTime.computeStats();
 ```
 
 The multiple level repetition may seem slightly excessive but reducing the number of iteration on the inner loop tends to make results fairly noisy. The inner level averaging is simply there to reduce impact of garbage collection and operating system overhead. If running on a computer with more capacity to spare, fewer iterations may be required.
