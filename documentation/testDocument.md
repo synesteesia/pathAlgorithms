@@ -26,7 +26,7 @@ mvn jacoco:report
 
 Test report can be read by opening the file _target/site/jacoco/index.html_ with browser.
 
-Current test coverage is 84%, this includes some redundant code tho.
+Current test coverage is 85%, this includes some redundant code like the UI tho.
 
 ## Performance testing
 
