@@ -95,7 +95,7 @@ set4: Baldurs Gate 2
 
 set5: Starcraft
 
-Each set contains approximately 
+Each set contains tens of maps. For further testing more sets could downloaded or created.
 
 ```
 Dijkstra data structure init results:
