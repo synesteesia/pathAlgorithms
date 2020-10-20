@@ -64,7 +64,6 @@ The program takes one or multiple maps and user text as input. If the user wants
 The program reads .map files that can be found on site:
 https://www.movingai.com/benchmarks/grids.html 
 
-The program prints various results comparing the algorithms as output. 
 In the maps a dot represents acceptable directions for movement, other letters are walls.
 
 ## Expected time and space complexities of the program
