@@ -12,6 +12,20 @@ All test classes can be found from the test folder:
 
 ### Test coverage
 
+
+JUnit tests are run with command
+
+```
+mvn test
+```
+Testing report is created with command
+
+```
+mvn jacoco:report
+```
+
+Test report can be read by opening the file _target/site/jacoco/index.html_ with browser.
+
 Current test coverage is 84%, this includes some redundant code tho.
 
 ## Performance testing
