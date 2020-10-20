@@ -5,10 +5,11 @@ Comparing pathfinding algorithms in java. Project for [datastructure and algorit
 
 ## Links to documentation
 
-### [Project definition](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/project_definition.md)
+### [Implementation Document](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/implementationDocument.md)
 ### [Instructions](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/Instructions.md)
 ### [Test document](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/testDocument.md)
-### [Implementation Document](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/implementationDocument.md)
+### [Project definition](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/project_definition.md)
+
 
 
 
