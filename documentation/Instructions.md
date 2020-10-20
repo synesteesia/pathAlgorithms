@@ -29,6 +29,8 @@ It is possible to give the program a single map or a set of maps as input.
 Maps can be donloaded by clicking "browse data" on the site. 
 Maps used in this project were Warcraft 3 maps.
 
+The program also uses input given by the user in the text interface.
+
 ### Text interface
 
 The program works with a text interface, asking user questions.
