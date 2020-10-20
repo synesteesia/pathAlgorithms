@@ -32,7 +32,7 @@ Each algorithm prints their results through the UI class.
 
 ## Implemented algorithms
 
-### Dijkstra's algorithm
+### Dijkstra's
 
 Dijkstra's algorithm is an algorithm for finding the shortest path between two points in a weighted graph. The algorithm will find all the shortest paths between the starting point and all other points unless the algorithm is stoped early at the desired point.
 
@@ -40,7 +40,7 @@ Dijkstra's algorithm uses a priority queue to first process the paths with the l
 
 Dijkstra's algorithm is a natural choice for a pathfinding program, the algorithm will always find a correct path, it is efficent enough to be used on large graphs and it is relatively easy to implement.
 
-### A Star search algorithm
+### A Star
 
 A Star search algorithm is an algorithm for finding the shortest path between two points in a weighted graph. A Star search algorithm can be seen as an extention of Dijktra's algorithm. It achieves better performance by using heuristics to guide its search.
 
@@ -48,7 +48,7 @@ A Star search algorithm uses a priority queue with heuristics to help reduce the
 
 A Star search algorithm is a natural choice for a pathfinding program because it is similar to Dijktra's algorithm but uses heuristics to increase its efficency.
 
-### Jump point search algorithm
+### Jump point search
 
 Jump point search algorithm (JPS) is an algorithm for finding the shortest path between two points in an uniform-cost grid. JPS is an extention to the A Star search algorithm. It achieves better performance by pruning certain unfavorable nodes before they are processed and creating 'jump points' along straight lines on the grid.
 
