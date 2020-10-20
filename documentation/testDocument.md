@@ -58,10 +58,6 @@ In testing two different values are of intrest for data structure comparison. Th
 For testing the preprocessing time, both of the structures are built 100 times for each of the input array sizes, and the median is stored. Here the median is used instead of the mean to avoid the extreme outlier of JIT compilation and to minimize the impact of garbage collection.
 
 ```java
-        preprocessing = new PerformanceStats(1000);
-        runTime = new PerformanceStats(1000);
-        long start, stop;
-
         for (int i = 0; i < 1000; i++) {
             start = System.nanoTime();
             runPreprocessing(graph);
