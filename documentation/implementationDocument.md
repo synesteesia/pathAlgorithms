@@ -66,7 +66,7 @@ https://www.movingai.com/benchmarks/grids.html
 
 In the maps a dot represents acceptable directions for movement, other letters are walls.
 
-## Expected time and space complexities of the program
+## Expected time and space complexities of the algorithms
 
 |E| is the number of edges and |V| is the number of vertices.
 
