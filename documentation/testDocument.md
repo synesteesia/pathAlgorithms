@@ -30,23 +30,27 @@ Current test coverage is 85%, this includes some redundant code like the UI tho.
 
 ## Performance testing
 
-Especially in java, performance testing is a tradeoff between the resources spent on running tests and accuracy of results.
+Since java is a JIT compiled language the performance of each algorithm is measured 1000 times per map, and the first result is discarded.
+Average and median performance times are calculated from remaining results. 
+Additionally the operating systems task scheduling and os overhead might impact the results.
 
-If a thing is done once, there is a good chance that the code was actually compiled while timing rendering the results completely useles. This is due to the fact that java is a JIT (Just In Time) compiled language and no code is necessarily compiled untill it is actually called. Due to this it is generally a good idea to time everything at least two times and completely discarding the first result.
+To see how the algorithms scale with input size, performance testing is done with increasing number of maps as input.
+To get better results, a bigger number of maps or more dynamic implemention could be used.
 
-Since java is a garbage collected language, it is very possible that some results are significantly skewed due to garbage collection running during timing and blocking the timed function for the duration of garbage collection. The solution to this is to run a lot of tests for the same thing and averaging out the results or pruning outliers.
+Each pathfinding algorithm is divided into two parts. 
+First, the class compiles the datastructures the algorithm needs to function and after this the pathfinding is run.
+Time is measured for both parts, data structure initialization and run time.
+`System.nanotime` is used for timing. 
+Taking a timestamp as close to the code-to-time as possible and comparing the timestamp after the intresting code has run.
+As mentioned before, both parts of the algorithm are ran 1000 times per input map.
 
-Additionally when running on a computer with an operating system, the task sceduling and os overhead can have some impact on results. Especially if the system is low on memory.
 
-As a rule oh thumb, run a lot of tests and discard the first result.
 
 ### Performance testing path algorithms
 
 Performance tests for the two RMQ structures are written in `Tester.java`.
 
 In testing two different values are of intrest for data structure comparison. The preprocessing time taken when building the different data structures and the time taken when querying the data structures. Additionally it may be intresting to get timing for updating the dynamic structures but this is skipped since we have no point of comparison.
-
-To see how the data structures scale with array size, all tests are run with arrays of sizes `{10, 100, 1000, 10000, 100000, 1000000, 10000000}`. To get better results, bigger arays could probably be used, but the tests take long enough to run as is (~15 minutes on an old laptop).
 
 
 ### Data structure initialization time
