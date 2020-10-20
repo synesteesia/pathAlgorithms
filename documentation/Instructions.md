@@ -34,7 +34,7 @@ The program also uses input given by the user in the text interface.
 ### Text interface
 
 The program works with a text interface, asking user questions.
-The first question is:
+When lauching the program the first question is:
 
 "Would you like to process single map or a set of maps?"
 Answer by typing "single" or "set" and hitting enter.
