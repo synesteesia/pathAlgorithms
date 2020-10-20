@@ -5,6 +5,8 @@
  */
 package pathalgorithms;
 
+import pathalgorithms.dataStructures.Vertex;
+import pathalgorithms.dataStructures.MinHeap;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

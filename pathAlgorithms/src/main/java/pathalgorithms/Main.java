@@ -5,6 +5,7 @@
  */
 package pathalgorithms;
 
+import pathalgorithms.IO.Ui;
 import java.util.Scanner;
 
 /**

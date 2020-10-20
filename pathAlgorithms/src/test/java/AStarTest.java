@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-import pathalgorithms.AStar;
+import pathalgorithms.pathFinders.AStar;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pathalgorithms.ArList;
-import pathalgorithms.Graph;
+import pathalgorithms.dataStructures.ArList;
+import pathalgorithms.dataStructures.Graph;
 
 /**
  *

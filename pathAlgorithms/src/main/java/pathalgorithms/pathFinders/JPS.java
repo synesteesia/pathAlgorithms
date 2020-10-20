@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pathalgorithms;
+package pathalgorithms.pathFinders;
+
+import pathalgorithms.dataStructures.ArList;
+import pathalgorithms.dataStructures.Graph;
+import pathalgorithms.dataStructures.MinHeap;
+import pathalgorithms.IO.PerformanceStats;
+import pathalgorithms.dataStructures.Vertex;
 
 /**
  * @author mikko

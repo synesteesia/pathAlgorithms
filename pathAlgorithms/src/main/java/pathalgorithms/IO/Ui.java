@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pathalgorithms;
+package pathalgorithms.IO;
 
+import pathalgorithms.dataStructures.Graph;
+import pathalgorithms.pathFinders.JPS;
+import pathalgorithms.pathFinders.Dijkstra;
+import pathalgorithms.pathFinders.AStar;
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
