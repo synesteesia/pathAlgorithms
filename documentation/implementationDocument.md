@@ -96,7 +96,6 @@ More about results and algorithm performance tests can be found on the test docu
 ## User interface
 
 The project uses a simple text interface and can be found in its own Ui class.
-[Ui](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/IO/Ui.java)
 More details about the text interface can be found on the instructions document.
 [Instructions](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/Instructions.md)
 
