@@ -47,17 +47,13 @@ A star and JPS are heavily based on Dijkstra's algorithm.
 
 ### A Star
 
+A star algorithm finds the shortest path between two points in a weighted graph. In comparison do Dijkstra's, A star uses a priority queue with heuistics to reduce the amount of nodes it has to process. Better performance is achieved with heuristics guideing the search. Otherwise the algorithm is identical with Dijksta's algorithm.
+
 The algorithm can be found in the following class in the method run():
 [A star](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders/AStar.java).
 
+The heuristic used in this project is simple euclidean and cn be foundin the method  euclideanDistance(int vertex).
 
-A*  on  paras  ensin  -haku,  joka  arvioi  solmuja  valitessaan  sekä  solmujen  etäisyyttäaloitussolmusta että heuristisen arviointifunktion tulosta. Siinä missä Dijkstran algoritmiarvioi vain etäisyyttä aloitussolmustag(n)ja täysin heuristinen haku arvioi vain heuristi-sen funktion arvoah(n), A* arvioi näiden summaag(n)+h(n). Sitä voidaan täten ajatellaDijkstran algoritmin ja täysin heuristisen haun yhdistelmänä, ja se onkin toteutukseltaanidenttinen Dijkstran algoritmin kanssa muutoin, kuin solmujen arvioinnin osalta.
-
-A Star search algorithm is an algorithm for finding the shortest path between two points in a weighted graph. A Star search algorithm can be seen as an extention of Dijktra's algorithm. It achieves better performance by using heuristics to guide its search.
-
-A Star search algorithm uses a priority queue with heuristics to help reduce the amount of nodes it has to process.
-
-A Star search algorithm is a natural choice for a pathfinding program because it is similar to Dijktra's algorithm but uses heuristics to increase its efficency.
 
 ### Jump point search
 
