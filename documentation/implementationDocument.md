@@ -108,3 +108,13 @@ More details about the text interface can be found on the instructions document.
 
 ## Sources
 
+* http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html
+* https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
+* https://www.geeksforgeeks.org/a-search-algorithm/
+* http://users.cecs.anu.edu.au/~dharabor/data/papers/harabor-grastien-aaai11.pdf
+* https://movingai.com/benchmarks/grids.html
+* https://harablog.wordpress.com/2011/09/07/jump-point-search/
+* http://runedegroot.com/jump-point-search-jps-pathfinding-algorithm/
+* https://www.gamedev.net/tutorials/programming/artificial-intelligence/jump-point-search-fast-a-pathfinding-for-uniform-cost-grids-r4220/
+* https://trepo.tuni.fi/bitstream/handle/10024/121424/PekkaOinas.pdf?sequence=2&isAllowed=y
+
