@@ -52,7 +52,7 @@ A star algorithm finds the shortest path between two points in a weighted graph.
 The algorithm can be found in the following class in the method run():
 [A star](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders/AStar.java).
 
-The heuristic used in this project is simple euclidean and cn be foundin the method  euclideanDistance(int vertex).
+The heuristic used in this project is simple euclidean and can be found in the method  euclideanDistance(int vertex).
 
 
 ### Jump point search
