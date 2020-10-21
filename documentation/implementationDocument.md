@@ -94,7 +94,7 @@ In the maps a dot represents acceptable directions for movement, other letters a
 ## Output
 
 The program prints questions to the user and results about different algorithms.
-More about results algorithm performance tests can be found on the test document.
+More about results and algorithm performance tests can be found on the test document.
 
 ## User interface
 
