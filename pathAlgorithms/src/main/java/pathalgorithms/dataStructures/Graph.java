@@ -48,7 +48,9 @@ public class Graph {
     }
 
     public void addEmptyAdjacency(int from) {
-        arrayGraph[from] = new ArList();
+        if (arrayGraph[from] == null) {
+            arrayGraph[from] = new ArList();
+        }
     }
 
     public ArList[] getArrayGraph() {
@@ -78,7 +80,7 @@ public class Graph {
     public int getNColumns() {
         return nCols;
     }
- 
+
     public void freezeAll() {
         for (ArList arList : arrayGraph) {
             arList.freeze();

@@ -7,7 +7,7 @@ package pathalgorithms.pathFinders;
 
 import pathalgorithms.dataStructures.Graph;
 import pathalgorithms.dataStructures.MinHeap;
-import pathalgorithms.IO.PerformanceStats;
+import pathalgorithms.dataStructures.PerformanceStats;
 import pathalgorithms.dataStructures.Vertex;
 
 /**
@@ -18,41 +18,39 @@ public class AStar {
     private Graph graph;
     private double[] distances;
     private boolean[] visited;
-    private PerformanceStats preprocessing;
-    private PerformanceStats runTime;
 
     /**
      * Runs A star algorithm and prints results.
      *
      * @param graph Graph represented as an adjacency list
+     * @param preprocessing
+     * @param runTime
      * @return A double array of distances from starting vertex.
      */
-    public double[] runAStar(Graph graph) {
+    public double[] runAStar(Graph graph, PerformanceStats preprocessing, PerformanceStats runTime) {
 
-        preprocessing = new PerformanceStats(1000);
-        runTime = new PerformanceStats(1000);
         long start, stop;
 
         for (int i = 0; i < 1000; i++) {
             start = System.nanoTime();
             runPreprocessing(graph);
             stop = System.nanoTime();
-            preprocessing.setValue(i, stop - start);
+            preprocessing.addValue(stop - start);
         }
-
-        preprocessing.computeStats();
 
         for (int i = 0; i < 1000; i++) {
             start = System.nanoTime();
             run();
             stop = System.nanoTime();
-            runTime.setValue(i, stop - start);
+            runTime.addValue(stop - start);
         }
 
-        runTime.computeStats();
+        return distances;
+    }
 
-        results();
-
+    public double[] runAStar(Graph graph) {
+        runPreprocessing(graph);
+        run();
         return distances;
     }
 
@@ -104,17 +102,5 @@ public class AStar {
         int e_x = graph.getEndVertex() - e_y * graph.getNColumns();
 
         return Math.sqrt((e_x - v_x) * (e_x - v_x) + (e_y - v_y) * (e_y - v_y));
-    }
-
-    /**
-     * Prints results
-     */
-    public void results() {
-        String output = "Number of vertices = " + graph.getNVertices();
-        output += ("\nThe shortest distance from start vertex to target is " + distances[graph.getEndVertex()]);
-        output += "\nStatistics for initialising data structures:\n" + preprocessing.toString();
-        output += "\nStatistics for running the algorithm:\n" + runTime.toString();
-
-        System.out.println(output);
     }
 }

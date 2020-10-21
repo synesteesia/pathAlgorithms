@@ -61,7 +61,7 @@ public class JPSTest {
         assertTrue(distances[0] == 0);
         assertTrue(distances[2] == Integer.MAX_VALUE);
         assertTrue(distances[5] == 2);
-        assertTrue(distances[6] == 3);
+        assertTrue(distances[6] == Integer.MAX_VALUE);
         assertTrue(distances[9] == 3);
     }
 

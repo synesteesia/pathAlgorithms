@@ -86,6 +86,7 @@ public class Parser {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < cols; j++) {
                 current = j + i * cols;
+                graph.addEmptyAdjacency(current);
                 if (".".equals(String.valueOf(grid[i].charAt(j)))) {
                     if (setStartEnd && !found) {
                         graph.setStartVertex(current);
@@ -97,14 +98,22 @@ public class Parser {
                     if (i < grid.length - 1 && ".".equals(String.valueOf(grid[i + 1].charAt(j)))) {
                         graph.addAdjacent(j + (i + 1) * cols, current);
                     }
-
-                } else {
-                    graph.addEmptyAdjacency(current);
                 }
             }
         }
 
-        found = false;
+        graph.freezeAll();
+
+        if (setStartEnd) {
+            for (int i = grid.length - 1; i >= 0; i--) {
+                for (int j = cols - 1; j >= 0; j--) {
+                    if (".".equals(String.valueOf(grid[i].charAt(j)))) {
+                        graph.setEndVertex(j + i * cols);
+                        return graph;
+                    }
+                }
+            }
+        }
 
         return graph;
     }
