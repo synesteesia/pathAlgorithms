@@ -17,17 +17,16 @@ Contains the code for Dijkstras, A star and JPS algorithm.
 
 [dataStructures](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/dataStructures)
 
-Contains simple implementations of ArrayList, MinHeap, Graph and Vertex.
+Contains simple implementations of ArrayList, MinHeap, Graph, Vertex and PerformanceStats class to calculate the results.
 
 [IO](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/src/main/java/pathalgorithms/IO)
 
-Contains the user text interface, parser for map files and PerformanceStats class to calculate some of the results.
+Contains the user text interface and parser for map files.
 
 The UI class is the class taking all the direct input and sending it to other classes.
 The parser class is used to process .map files into a grid data structures, 
 so they can be ran through the pathfinding algorithms.
-While running the pathfinding algorithms, some data is stored and then used by PerformanceStats class to calculate some of the results.
-Each algorithm prints their results through the UI class.
+While running the pathfinding algorithms, some data is stored and then the data is used by PerformanceStats class to calculate the results.
 
 
 ## Implemented algorithms
