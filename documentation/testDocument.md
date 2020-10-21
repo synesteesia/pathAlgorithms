@@ -50,32 +50,28 @@ On each iteration the timestamp is stored and after the loop the class
 
 ### Data structure initialization time
 
-For testing the data structure initialization time, the data structures are built 1000 times for each of the maps, and the timestamps are stored. Afterwards the result times are calculated. runPreprocessing(graph); contains the method for data structure initialization.
+For testing the data structure initialization time, the data structures are built 1000 times for each of the maps, and the timestamps are stored. runPreprocessing(graph); contains the method for data structure initialization.
 
 ```java
         for (int i = 0; i < 1000; i++) {
             start = System.nanoTime();
             runPreprocessing(graph);
             stop = System.nanoTime();
-            preprocessing.setValue(i, stop - start);
+            preprocessing.addValue(stop - start);
         }
-
-        preprocessing.computeStats();
 ```
 
 ### Run time
 
-To test run times, the pathfinding algorithm is runs 1000 times and timestamps are stored. Afterwards the result times are calculated. run(); method contains the pathfinding algorithm.
+To test run times, the pathfinding algorithm is runs 1000 times and timestamps are stored. run(); method contains the pathfinding algorithm.
 
 ```java
         for (int i = 0; i < 1000; i++) {
             start = System.nanoTime();
             run();
             stop = System.nanoTime();
-            runTime.setValue(i, stop - start);
+            runTime.addValue(stop - start);
         }
-
-        runTime.computeStats();
 ```
 
 
