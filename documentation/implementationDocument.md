@@ -57,16 +57,12 @@ The heuristic used in this project is simple euclidean and can be found in the m
 
 ### Jump point search
 
+Jump point search (JPS) algorithm finds the shortest path between two points in an uniform cost grid. JPS finds the shortest path by implementing so called pruning rules. The neighbours of the processed vertex to where the path is shorter or equal from another vertex are dismissed. By using these rules the algorithm finds jump point vertices, that are necessary parts of the shortest path to one or multiple of their neighbours.
+
 The algorithm can be found in the following class in the method run():
 [JPS](https://github.com/synesteesia/pathAlgorithms/blob/master/pathAlgorithms/src/main/java/pathalgorithms/pathFinders/JPS.java).
 
-Jump Point Search hyödyntää solmuja laajentaessaan niin kutsuttuja karsintasääntö-jä (pruning rules). Karsintasääntöjen avulla algoritmi voi sivuuttaa sellaiset tarkasteltavansolmun naapurit, joihin on olemassa lyhempi tai yhtä lyhyt polku, joka ei kulje tarkas-teltavan solmun läpi. Käyttämällä näitä sääntöjä rekursiivisesti jokaiseen solmun naapu-riin jota ei poissuljettu karsinnassa, algoritmi löytää niin kutsuttujahyppypisteitä(jumppoint); solmuja, jotka ovat välttämätön osa lyhintä reittiä yhteen tai useampaan naapu-riinsa. Keskittymällä näihin solmuihin algoritmi karsii pois symmetrisiä polkuja.
-
-Harabor ja Grastien todistavat, että optimaalinen lyhin polku on mahdollista löytäälaajentamalla vain hyppypistesolmuja. Tämä vähentää merkittävästi laajennettujen sol-mujen määrää, joka poistaa A*:lle tyypillisen prioriteettijonosta muodostuvan pullonkau-lan.
-
-Jump point search algorithm (JPS) is an algorithm for finding the shortest path between two points in an uniform-cost grid. JPS is an extention to the A Star search algorithm. It achieves better performance by pruning certain unfavorable nodes before they are processed and creating 'jump points' along straight lines on the grid.
-
-JPS is a natural choice for shortest pathfinding in an uniform-cost grid because it can greatly improve the efficency over A Star algorithm.
+Focusing on jump points and using the pruning rules JPS becomes computationally less expensive alternative compared to A star, since the priority queue and the number of calculations stays smaller. JPS is in a clear advantage over A star on uniform cost grids.
 
 
 ## Inputs
