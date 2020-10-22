@@ -8,6 +8,7 @@ import pathalgorithms.pathFinders.Dijkstra;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pathalgorithms.IO.Parser;
 import pathalgorithms.dataStructures.ArList;
 import pathalgorithms.dataStructures.Graph;
 
@@ -20,6 +21,7 @@ public class DijkstraTest {
     private Dijkstra dijkstra;
     private Graph emptyGraph;
     private Graph smallGraph;
+    private Graph smallGraph2;
 
     @Before
     public void setUp() {
@@ -38,6 +40,9 @@ public class DijkstraTest {
         adjacencyList[9] = new ArList(5);
         smallGraph = new Graph(adjacencyList, 4);
         smallGraph.setEndVertex(9);
+        String filePath = "./src/test/java/testmap2.map";
+        String[] grid = Parser.readFile(filePath);
+        smallGraph2 = Parser.parseGrid(grid, 2, 1, 13, 8);
     }
 
     @Test
@@ -61,5 +66,13 @@ public class DijkstraTest {
         assertTrue(distances[6] == 3 && visited[6]);
         assertTrue(distances[7] == 4 && !visited[7]);
         assertTrue(distances[9] == 3 && !visited[9]);
+    }
+
+    @Test
+    public void runDijkstraWorksOnSmallGraph2() {
+        int[] distances = dijkstra.runDijkstra(smallGraph2);
+        assertEquals(smallGraph2.getNVertices(), distances.length);
+        assertTrue(distances[smallGraph2.getStartVertex()] == 0);
+        assertTrue(distances[smallGraph2.getEndVertex()] == 18);
     }
 }

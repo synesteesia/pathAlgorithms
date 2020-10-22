@@ -7,6 +7,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pathalgorithms.IO.Parser;
 import pathalgorithms.dataStructures.ArList;
 import pathalgorithms.dataStructures.Graph;
 import pathalgorithms.pathFinders.JPS;
@@ -17,9 +18,10 @@ import pathalgorithms.pathFinders.JPS;
  */
 public class JPSTest {
     
-     private JPS jps;
+    private JPS jps;
     private Graph emptyGraph;
     private Graph smallGraph;
+    private Graph smallGraph2;
 
     @Before
     public void setUp() {
@@ -42,6 +44,9 @@ public class JPSTest {
         smallGraph = new Graph(adjacencyList, 4);
         smallGraph.setEndVertex(9);
         smallGraph.setStartVertex(0);
+        String filePath = "./src/test/java/testmap2.map";
+        String[] grid = Parser.readFile(filePath);
+        smallGraph2 = Parser.parseGrid(grid, 2, 1, 13, 8);
     }
 
     @Test
@@ -59,10 +64,24 @@ public class JPSTest {
         double[] distances = jps.runJPS(smallGraph);
         assertEquals(smallGraph.getNVertices(), distances.length);
         assertTrue(distances[0] == 0);
+        assertTrue(distances[1] == Integer.MAX_VALUE);
         assertTrue(distances[2] == Integer.MAX_VALUE);
+        assertTrue(distances[3] == Integer.MAX_VALUE);
+        assertTrue(distances[4] == Integer.MAX_VALUE);
         assertTrue(distances[5] == 2);
         assertTrue(distances[6] == Integer.MAX_VALUE);
+        assertTrue(distances[7] == Integer.MAX_VALUE);
+        assertTrue(distances[8] == Integer.MAX_VALUE);
         assertTrue(distances[9] == 3);
+        assertTrue(distances[10] == Integer.MAX_VALUE);
+        assertTrue(distances[11] == Integer.MAX_VALUE);
     }
 
+    @Test
+    public void runJpsWorksOnSmallGraph2() {
+        double[] distances = jps.runJPS(smallGraph2);
+        assertEquals(smallGraph2.getNVertices(), distances.length);
+        assertTrue(distances[smallGraph2.getStartVertex()] == 0);
+        assertTrue(distances[smallGraph2.getEndVertex()] == 18);
+    }
 }
