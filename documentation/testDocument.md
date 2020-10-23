@@ -275,3 +275,5 @@ JPS run time
 	Standard deviation: 322023.6139120842
 	Minimum and maximum: 94, 153900395
 ```
+
+One porrible reason JPS does not perform as well as it should compared to the other two algorithms in all of the sets might be because the graphs in the first first sets are smaller than the later ones. Thus, in small graphs the computational overhead of finding the cells to jump to overshadows the gains from skipping the rest of the cells.
