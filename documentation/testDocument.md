@@ -279,6 +279,6 @@ JPS run time
 One possible reason JPS does not perform as well as it should compared to the other two algorithms in all of the sets might be because the graphs in the first first sets are smaller than the later ones. Thus, in small graphs the computational overhead of finding the cells to jump to overshadows the gains from skipping the rest of the cells.
 
 ![RunTimes](https://github.com/synesteesia/pathAlgorithms/blob/master/documentation/runTimes.pdf?raw=true)
-<img src="https://raw.githubusercontent.com/synesteesia/pathAlgorithms/master/documentation/runTimes.pdf" width="160">
+<img src="https://raw.githubusercontent.com/synesteesia/pathAlgorithms/master/documentation/runTimes.pdf">
 
 
