@@ -36,7 +36,7 @@ Average, median, min and max performance times are calculated from remaining res
 Additionally the operating systems task scheduling and os overhead might impact the results.
 
 To see how the algorithms scale with input size, performance testing is done with increasing number of maps as input.
-To get better results, a bigger number of maps or more dynamic implemention could be used.
+To get better results, a bigger number and larger maps could be used.
 
 Each pathfinding algorithm is divided into two parts. 
 First, the class compiles the datastructures the algorithm needs to function and after this the pathfinding is run.
