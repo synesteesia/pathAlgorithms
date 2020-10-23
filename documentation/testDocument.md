@@ -80,7 +80,8 @@ To test run times, the pathfinding algorithm is runs 1000 times and timestamps a
 
 Tests were run on a computer with `Intel® Core™ i7-6500U` cpu and 8GB of RAM. The computer was by no means ideal for performance testing.
 The maps used can be found on the site: https://movingai.com/benchmarks/grids.html by clicking link "donwload all maps". 
-Each different game is considered one set.
+Game maps are added to each set - set1 contains Dragon Age maps. set2 contains Dragon Age AND Dragon Age 2 etc.
+The sets are included in the project folder [PerformanceTests](https://github.com/synesteesia/pathAlgorithms/tree/master/pathAlgorithms/PerformanceTests).
 
 set1: Dragon Age: Origins, 156 maps total.
 
