@@ -63,4 +63,5 @@ Date       | time | target |
  4      | 11      |
  5      | 11     |
  6      | 11     |
-**Tot** | **63** |
+ 7 and 8| at least 20     |
+**Tot** | **83+** |
