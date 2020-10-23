@@ -20,7 +20,7 @@ public class JPS {
     private double[] distances;
     private boolean[] visited;
     private ArList[] adjacencyLists;
-    public int[] directions;
+    private int[] directions;
 
     /**
      * Runs JPS algorithm and prints results.
@@ -125,7 +125,7 @@ public class JPS {
 
             if (vertex == graph.getEndVertex()
                     || isForcedNeighbour(vertex, diffToForced, diffToNext)
-                    || isForcedNeighbour(vertex, - diffToForced, diffToNext)) {
+                    || isForcedNeighbour(vertex, -diffToForced, diffToNext)) {
                 directions[vertex] = diffToNext;
                 return vertex;
             }
@@ -135,9 +135,10 @@ public class JPS {
 
     private boolean isForcedNeighbour(int vertex, int diffForced, int diffToNext) {
         return isValidVertex(vertex + diffForced)
+                && isValidVertex(vertex + diffToNext)
+                && isValidVertex(vertex + diffToNext + diffForced)
                 && adjacencyLists[vertex + diffToNext].size() != 0
                 && adjacencyLists[vertex + diffForced].size() == 0
-                && isValidVertex(vertex + diffForced + diffToNext)
                 && adjacencyLists[vertex + diffForced + diffToNext].size() != 0;
     }
 
@@ -180,7 +181,7 @@ public class JPS {
         int direction = Math.abs(directions[vertex]);
 
         if (direction == 1 || direction == graph.getNColumns()) {
-            int forcedDir = graph.getNColumns() - directions[vertex] + 1;
+            int forcedDir = graph.getNColumns() - direction + 1;
 
             neighbours = new Integer[3];
             neighbours[0] = straightJump(vertex, directions[vertex], forcedDir);
